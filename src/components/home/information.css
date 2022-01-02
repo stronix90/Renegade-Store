@@ -1,0 +1,118 @@
+/* INFORMACIÓN */
+
+.information {
+  background: rgba(15, 15, 15, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  border: solid 1px var(--dark);
+  padding: 1.5rem;
+  margin-top:3rem;
+  margin-bottom:3rem;
+}
+
+/* CATEGORIAS */
+.cat_container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+}
+
+.cat_container .cat_radius {
+  width: 150%;
+  border-radius: 0 0 15% 15%;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgb(54 145 58 / 55%), 0 0.5rem 1rem rgb(0 0 0);
+  background: rgb(15, 15, 15);
+  height: 95px;
+  transition: height .5s ease-in-out;
+}
+
+.cat_container:hover .cat_radius{
+  height: 150px;
+}
+
+.home .cat_radius{
+    height: 180px !important;
+}
+
+.cat_container .categories {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 4.5rem 0 2rem;
+  margin: 0 10px -10px;
+  z-index: 10;
+}
+
+.home .categories {
+  padding-top: 2rem !important;
+}
+
+.cat_container .categories img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.home img {
+  max-width: 80px !important;
+  max-height: 80px !important;
+}
+
+.cat_container .categories a {
+  text-decoration: none;
+}
+
+.cat_container .categories * {
+  transition: all 0.5s ease-in-out;
+}
+
+.cat_container .categories h2 {
+  font-size: 0.8rem;
+  color: rgb(117, 117, 117);
+}
+
+.home h2 {
+  font-size: 1rem !important;
+  color: rgb(117, 117, 117) !important;
+  display: block !important;
+}
+
+.cat_container .categories img {
+  filter: none;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  cursor: pointer;
+}
+
+.cat_container .categories div:hover > img,
+.cat_container .categories > .active > div > img {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+}
+
+.cat_container .categories div:hover > h2,
+.cat_container .categories > .active > div > h2 {
+  color: rgb(255, 255, 255);
+}
+
+/* CONTENEDOR DE PRODUCTOS */
+
+.products_container {
+  padding: 10rem 1rem 2rem;
+  margin: -10rem auto 2rem auto;
+  background: rgb(34, 34, 34);
+  background: linear-gradient(
+    160deg,
+    rgba(34, 34, 34, 0.7) 0%,
+    rgba(56, 56, 56, 0.7) 100%
+  );
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  min-height: 50vh;
+}

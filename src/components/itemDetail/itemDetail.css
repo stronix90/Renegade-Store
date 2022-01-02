@@ -1,0 +1,41 @@
+/* ITEMDETAILCONTAINER */
+
+.item_detail_container {
+    justify-content: center;
+    background: var(--dark);
+    padding-top: 30px;
+    display: flex;
+    padding: 7rem 1rem 2rem;
+    margin: -10rem auto 2rem auto;
+    background: rgb(34, 34, 34);
+    background: linear-gradient(160deg, rgba(34, 34, 34, 0.7) 0%, rgba(56, 56, 56, 0.7) 100%);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+    min-height: 80vh;
+}
+
+.item_detail_container .itemdetail {
+    background: rgba(29, 29, 29, .9);
+    max-width: 80vw;
+    min-height: 20rem;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .6);
+}
+
+.item_detail_container .img_header {
+    background: var(--dark_dark);
+    box-shadow: 3px 0 10px 0 rgba(0, 0, 0, .8);
+    display:flex;
+}
+
+.item_detail_container .img_header img {
+    max-width: 100%;
+    margin: auto;
+}
+
+.item_detail_container .card-text {
+    color: var(--text_light_grey)
+}
+
+.item_detail_container .card-body,
+.item_detail_container .card-footer {
+    margin-left: 40px;
+}

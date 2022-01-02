@@ -1,0 +1,36 @@
+.cartwidget_container {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.cartwidget {
+    /* Posición */
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    padding: 0 8px 3px;
+  
+    /* Diseño */
+    border-bottom: 2px solid rgb(15, 110, 7);
+    cursor: pointer;
+  
+    /* Animación */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cartwidget_icon {
+    margin-right: 8px;
+  }
+  .cartwidget span {
+    color: rgb(226, 226, 226);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cartwidget:hover {
+    border-bottom: 2px solid rgb(34, 167, 22);
+    text-shadow: 0 0 2px rgb(212, 212, 212);
+  }
+  
+  .cartwidget:hover > span {
+    color: rgb(255, 255, 255);
+  }

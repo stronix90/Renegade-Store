@@ -1,0 +1,63 @@
+.item_list_container {
+    padding: 7rem 1rem 2rem;
+    margin: -10rem auto 2rem auto;
+    background: rgb(34, 34, 34);
+    background: linear-gradient(160deg, rgba(34, 34, 34, 0.7) 0%, rgba(56, 56, 56, 0.7) 100%);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+    min-height: 80vh;
+}
+
+.item_list_container h2 {
+    font-family: "Azeret Mono", monospace;
+    color: var(--text_light_grey);
+    font-size: 24px;
+}
+
+
+/* ITEMCARD */
+
+.itemcard {
+    background: var(--grey_bg);
+    border-radius: 3px;
+    box-shadow: 0 0 5px 0 rgb(30, 30, 30);
+    transition: all .7s ease-in-out;
+}
+
+.itemcard:hover {
+    box-shadow: 0 0 5px 0px var(--green_light_off);
+}
+
+.itemcard .img_header {
+    display: flex;
+    justify-content: center;
+    background: var(--dark_dark);
+    height: 250px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
+    border: none;
+    margin-bottom: 5px;
+}
+
+.itemcard .img_header img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.itemcard h6 {
+    font-weight: 700;
+}
+
+.itemcard h6 a {
+    text-decoration-line: none;
+    color: var(--blanco_apagado);
+}
+
+.itemcard h6 a:hover {
+    color: white;
+}
+
+.item_detail_container .price,
+.item_list_container .price {
+    color: var(--green_light_on);
+}

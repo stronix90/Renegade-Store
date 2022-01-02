@@ -1,0 +1,5 @@
+☐ Hacer correctamente el Footer
+☐ Poner un container para todos los casos comunes, excepto Home. Tendria que tener un padding top o que el navBar tenga posición relativa
+
+☐ ¿Como hacer para usar las categorias con dos estilos diferentes?
+☐ El componente ItemDetail e Item son practicamente igual. ¿No se pueden reciclar? De hecho, tengo la misma función dos veces

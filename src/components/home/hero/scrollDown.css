@@ -1,0 +1,85 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
+.arrow {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    background: rgb(40, 40, 40);
+    background: linear-gradient(180deg, rgba(40, 40, 40, 1) 0%, rgba(56, 56, 56, 0) 100%);
+}
+
+.arrow a {
+    position: relative;
+    margin: auto;
+    z-index: 2;
+    display: inline-block;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font: normal 400 12px/1 "Josefin Sans", sans-serif;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: all 1s;
+    padding-top: 55px;
+}
+
+.arrow>a:hover {
+    text-shadow: 0px 1px 20px rgb(212, 212, 212);
+}
+
+.arrow a span {
+    position: absolute;
+    top: 0;
+    left: 48%;
+    width: 18px;
+    height: 18px;
+    border-left: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: sdb07 4s infinite;
+    animation: sdb07 4s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.arrow a span:nth-of-type(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.arrow a span:nth-of-type(2) {
+    top: 14px;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+.arrow p {
+    font-weight: 900;
+    letter-spacing: .3rem;
+    text-shadow: 1px 2px 5px black;
+    font-size: 1rem;
+}
+
+@-webkit-keyframes sdb07 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes sdb07 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
