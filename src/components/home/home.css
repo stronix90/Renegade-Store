@@ -1,5 +1,21 @@
 .section2 {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 50px 0;
+    background: rgba(44, 44, 44, 0.7);
     box-shadow: 0 0 50px 0 white, 0 0 10px 0 #90bd88;
-  }
+    display: flex;
+    align-content: space-around;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.products_title {
+    background: rgb(8, 8, 8);
+    color: #fff;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: .5rem;
+}
+
+.products_title a {
+    color: #fff;
+}

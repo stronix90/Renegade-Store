@@ -3,7 +3,9 @@ import "./brands.css";
 const Brands = () => {
   return (
     <div className="brands">
-        <h2>Nuestras marcas</h2>
+      <div className="container">
+        <h2>Marcas</h2>
+      </div>
       <div className="slide-track">
         <div className="slide">
           <img

@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 
 const Category = ({ div_class }) => {
-  div_class = div_class || "";
+  div_class = div_class || "cat_container";
   console.log(div_class);
 
   return (
-    <div className={`cat_container ${div_class}`}>
+    <div className={div_class}>
       <div className="cat_radius">
         <div className="categories">
           <NavLink to="/category/electronics">
