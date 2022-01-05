@@ -2,85 +2,107 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Azeret+Mono&display=swap");
 @import url("../components/header/navBar.css");
-@import url("../components/header/cartWidget.css");
 @import url("../components/home/hero/scrollDown.css");
-@import url("../components/home/information.css");
 @import url("../components/itemList/itemList.css");
 @import url("../components/itemDetail/itemDetail.css");
 @import url("../components/itemCount/itemCount.css");
 
-/* @import url("./category.css"); */
-
 :root {
-    /* SET 1 */
-    --dark_dark: #0f0f0f;
-    --dark: #222222;
-    --grey_bg: #1d1d1d;
-    /* SET 2 */
-    /* --dark_dark:#0f0f0f; 
-  --dark: #222222;
-  --grey_bg: #1d1d1d; */
-    --blanco_apagado: rgb(215, 215, 215);
-    --green_light_off: rgba(15, 110, 7, 0.5);
-    --green_light_on: rgb(34, 167, 22);
-    --text_light_grey: #c7c7c7;
-    --disabled_buttom: rgb(83, 83, 83);
-}
+  /* SET 1 */
+  --neutral800: rgb(15, 15, 15);
+  --neutral800_40: rgba(15, 15, 15,.5);
+  --neutral500: rgb(29, 29, 29);
 
+  --primary: #0d6105;
+  --primary_50: hsla(115, 90%, 20%, 0.5);
+  --primary_on: #62ff00;
+  --primary_dark: #06411d;
+
+  --text_on: rgb(255, 255, 255);
+  --text_off: rgb(210, 210, 210);
+
+  --black: rgb(0, 0, 0);
+  --black_50: rgba(0, 0, 0,.5);
+  --black_80: rgba(0, 0, 0,.8);
+
+  --white_05: rgba(255, 255, 255, 0.05);
+  --white_50: rgba(255, 255, 255, 0.5);
+
+  --disabled: rgb(83, 83, 83);
+  --disabled_light: rgb(117, 117, 117);
+
+
+
+
+  --green_light_off: rgba(15, 110, 7, 0.5);
+  --green_light_on: rgb(34, 167, 22);
+  --text_light_grey: rgb(199, 199, 199);
+}
 
 /* GENERAL */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Nunito", sans-serif;
-    color: aliceblue;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  color: aliceblue;
 }
 
-* a {
-    text-decoration: none;
+a {
+  text-decoration: none;
+  color:var(--text_off);
 }
 
+a:hover{
+  color:var(--text_on);
+  }
 
 /* SCROLL */
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    background-color: rgb(29, 29, 29);
+  box-shadow: inset 0 0 5px grey;
+  background-color: rgb(29, 29, 29);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(14, 87, 8);
-    border-radius: 10px;
+  background: rgb(14, 87, 8);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #00b300;
+  background: #00b300;
 }
 
 body {
-    background-color: #306844;
-    background-image: linear-gradient(314deg, #306844 0%, #2c4c3b 74%);
-    background: url("https://wallpapercave.com/wp/wp2548263.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+  background-color: #306844;
+  background-image: linear-gradient(314deg, #306844 0%, #2c4c3b 74%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
+  background-image: 
+  /* top, transparent red */
+  linear-gradient(
+    rgba(54, 46, 54, 0.8), 
+    rgba(54, 46, 54, 0.8)
+  ),
+  /* your image */
+  url("https://wallpapercave.com/wp/wp2548263.jpg");
+}
 
 /* LOGO */
 
 .logo {
-    -webkit-filter: drop-shadow(0px 0px 20px rgba(29, 78, 25, 0.7));
-    filter: drop-shadow(0px 0px 20px rgba(29, 78, 25, 0.7));
+  -webkit-filter: drop-shadow(0px 0px 20px rgba(29, 78, 25, 0.7));
+  filter: drop-shadow(0px 0px 20px rgba(29, 78, 25, 0.7));
 }
 
 .logo:hover {
-    -webkit-filter: drop-shadow(0px 0px 15px rgba(34, 167, 22, 0.7));
-    filter: drop-shadow(0px 0px 15px rgba(34, 167, 22, 0.7));
-    transition: 0.5s ease-in-out;
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(34, 167, 22, 0.7));
+  filter: drop-shadow(0px 0px 15px rgba(34, 167, 22, 0.7));
+  transition: 0.5s ease-in-out;
 }

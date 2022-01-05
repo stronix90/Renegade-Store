@@ -1,7 +1,7 @@
 /* ITEMCARD  BOTONES*/
 
 .itemCardButtons .itemCardSecBtn {
-    background: rgba(255, 255, 255, 0);
+    background: transparent;
     border-radius: 50%;
     border: none;
     padding: 2px 8px;
@@ -10,13 +10,13 @@
   }
   
   .itemCardButtons .itemCardSecBtn:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--white_05)
   }
   
   .itemCardButtons .itemCardSecBtn:disabled,
   .itemCardButtons .itemCardSecBtn[disabled] {
-    background: rgba(255, 255, 255, 0);
-    color: var(--disabled_buttom);
+    background: transparent;
+    color: var(--disabled);
   }
   
   .itemCardButtons input {
@@ -25,23 +25,23 @@
     text-align: center;
     transition: all 0.5s;
     width: 50px;
-    border-bottom: 1px solid rgb(65, 65, 65);
+    border-bottom: 1px solid var(--disabled)
   }
   
   .itemCardButtons input:focus {
     outline: none;
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid var(--primary_on);
   }
   
   .itemCardButtons input::selection {
-    background: rgb(56, 80, 56);
+    background: var(--primary_50)
   }
   
   .itemCardButtons .itemCardMainBtn {
     margin-left: auto;
     padding: 0 10px;
     background: transparent;
-    color: var(--blanco_apagado);
+    color: var(--text_off);
     border: none;
     border-bottom: solid 1px transparent;
     transition: all 0.5s;
@@ -49,13 +49,12 @@
   }
   
   .itemCardButtons .itemCardMainBtn:hover {
-    color: white;
-    border-bottom: solid 1px var(--green_light_off);
-    box-shadow: 0 1px 1px 0 var(--green_light_on);
+    color: var(--text_on);
+    border-bottom: solid 1px var(--primary_on);
   }
   
   .itemCardButtons .itemCardMainBtn:disabled,
   .itemCardButtons .itemCardMainBtn[disabled] {
-    background: rgba(255, 255, 255, 0);
-    color: var(--disabled_buttom)
+    background: transparent;
+    color: var(--disabled)
   }

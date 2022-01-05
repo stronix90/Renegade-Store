@@ -1,3 +1,5 @@
+import "./cartWidget.css"
+
 const CartWidget = () => {
   return (
       <div className="cartwidget">

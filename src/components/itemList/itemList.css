@@ -17,20 +17,16 @@
 /* ITEMCARD */
 
 .itemcard {
-    background: var(--grey_bg);
+    background: var(--neutral500);
     border-radius: 3px;
     box-shadow: 0 0 5px 0 rgb(30, 30, 30);
     transition: all .7s ease-in-out;
 }
 
-.itemcard:hover {
-    box-shadow: 0 0 5px 0px var(--green_light_off);
-}
-
 .itemcard .img_header {
     display: flex;
     justify-content: center;
-    background: var(--dark_dark);
+    background: var(--neutral800);
     height: 250px;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);

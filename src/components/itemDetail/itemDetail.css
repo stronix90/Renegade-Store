@@ -2,7 +2,7 @@
 
 .item_detail_container {
     justify-content: center;
-    background: var(--dark);
+    background: var(--primary);
     padding-top: 30px;
     display: flex;
     padding: 7rem 1rem 2rem;
@@ -21,7 +21,7 @@
 }
 
 .item_detail_container .img_header {
-    background: var(--dark_dark);
+    background: var(--neutral800);
     box-shadow: 3px 0 10px 0 rgba(0, 0, 0, .8);
     display:flex;
 }

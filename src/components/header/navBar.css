@@ -1,5 +1,5 @@
 .navbar {
-    background: rgb(15, 15, 15);
+    background: var(--neutral800);
     position: relative;
     height: 60px;
     width: 100%;

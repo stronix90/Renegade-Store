@@ -1,4 +1,4 @@
-import CartWidget from "./CartWidget";
+import CartWidget from "../cart/cartWidget/CartWidget";
 import { NavLink } from "react-router-dom"
 
 const NavBar = () => {

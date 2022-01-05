@@ -11,7 +11,7 @@
     padding: 0 8px 3px;
   
     /* Diseño */
-    border-bottom: 2px solid rgb(15, 110, 7);
+    border-bottom: 2px solid var(--primary);
     cursor: pointer;
   
     /* Animación */
@@ -22,15 +22,15 @@
     margin-right: 8px;
   }
   .cartwidget span {
-    color: rgb(226, 226, 226);
+    color: var(--text_off);
     transition: all 0.3s ease-in-out;
   }
   
   .cartwidget:hover {
-    border-bottom: 2px solid rgb(34, 167, 22);
-    text-shadow: 0 0 2px rgb(212, 212, 212);
+    border-bottom: 2px solid var(--primary_on);
+    text-shadow: 0 0 2px var(--text_on);
   }
   
   .cartwidget:hover > span {
-    color: rgb(255, 255, 255);
+    color: var(--text_on);
   }

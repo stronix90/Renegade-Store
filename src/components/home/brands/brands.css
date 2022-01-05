@@ -15,13 +15,6 @@
     position: relative;
 }
 
-
-/* 
-.brands h2 {
-    margin-left: 3rem;
-    color: rgb(255, 255, 255);
-} */
-
 .brands .slide-track {
     animation: scroll 80s linear infinite;
     display: flex;

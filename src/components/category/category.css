@@ -1,28 +1,109 @@
-.categories {
+/* Contenedor */
+
+.cat_container {
+    display: flex;
+    overflow: hidden;
+    z-index: 900;
+    top: 0;
+    position: sticky;
+    padding-bottom: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.cat_container_home {
+    display: flex;
+    overflow: hidden;
+    z-index: 900;
+    top: 0;
+    position: sticky;
+    padding-bottom: 1.2rem;
+    margin-bottom: 4rem;
+}
+/* .cat_container_home {
+    display: flex;
+    overflow: hidden;
+    z-index: 900;
+    position: relative;
+    padding-bottom: 1.2rem;
+    margin-bottom: 4rem;
+    border-top: solid 1px var(--black);
+} */
+
+
+/* Div con curva */
+
+.cat_container .cat_radius {
+    width: 150%;
+    border-radius: 0 0 15% 15%;
+    overflow: hidden;
+    box-shadow: 0 0 1rem var(--primary), 0 0.5rem .5rem var(--black_50);
+    background: var(--neutral800);
+    transition: all .8s ease-in-out;
+    height: 40px;
+}
+
+.cat_container:hover .cat_radius {
+    height: 100px;
+}
+
+.cat_container_home .cat_radius {
+    width: 150%;
+    border-radius: 0 0 15% 15%;
+    overflow: hidden;
+    box-shadow: 0 0 1rem var(--primary), 0 0.5rem .5rem var(--black_50);
+    background: var(--neutral800);
+    transition: all .8s ease-in-out;
+    height: 100px;
+}
+/* .cat_container_home .cat_radius {
+    width: 150%;
+    border-radius: 0 0 15% 15%;
+    overflow: hidden;
+    box-shadow: 0 0 1rem var(--primary), 0 0.5rem .5rem var(--black_50);
+    background: var(--neutral800);
+    transition: all .8s ease-in-out;
+    height: 140px;
+} */
+
+
+/* Botones de Categorias */
+
+.cat_container .categories,
+.cat_container_home .categories {
+    position: relative;
     display: flex;
     justify-content: space-around;
-    height: 18px;
     text-align: center;
-    padding-top: 50px;
-    background: rgba(15, 15, 15, .9);
-    border-radius: 4rem 4rem 0 0;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+    padding: 1rem 0 1rem;
+    margin: 0 10px -10px;
+    z-index: 10;
 }
 
-.categories a {
-    text-decoration: none;
+
+/* Imagen */
+
+.cat_container .categories img {
+    max-width: 50px;
+    max-height: 50px;
+    opacity: 0;
+    transition: all .5s ease-in-out;
 }
 
-.categories * {
-    transition: all 0.5s ease-in-out;
+.cat_container_home .categories img {
+    max-width: 50px;
+    max-height: 50px;
+}
+/* .cat_container_home .categories img {
+    max-width: 80px;
+    max-height: 80px;
+} */
+
+.cat_container:hover .categories img {
+    opacity: 1;
 }
 
-.categories h2 {
-    font-size: 1rem;
-    color: rgb(117, 117, 117);
-}
-
-.categories img {
+.cat_container .categories img,
+.cat_container_home .categories img {
     filter: none;
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -31,17 +112,48 @@
     cursor: pointer;
 }
 
-.categories div:hover>img,
-.active>img {
+.cat_container .categories div:hover>img,
+.cat_container .categories>.active>div>img,
+.cat_container_home .categories div:hover>img,
+.cat_container_home .categories>.active>div>img {
     filter: none;
     -webkit-filter: grayscale(0%);
     -moz-filter: grayscale(0%);
     -ms-filter: grayscale(0%);
     -o-filter: grayscale(0%);
-    cursor: pointer;
 }
 
-.categories div:hover>h2,
-.active>h2 {
-    color: rgb(255, 255, 255);
+
+/* Links */
+
+.cat_container .categories a,
+.cat_container_home .categories a {
+    text-decoration: none;
+}
+
+
+/* Texto */
+
+.cat_container .categories *,
+.cat_container_home .categories * {
+    transition: all 0.5s ease-in-out;
+}
+
+.cat_container .categories h3 {
+    font-size: 0.8rem;
+    color: var(--disabled_light);
+    text-transform: uppercase;
+}
+
+.cat_container_home .categories h3 {
+    text-transform: uppercase;
+    font-size: .9rem;
+    color: var(--disabled_light)
+}
+
+.cat_container .categories div:hover>h3,
+.cat_container .categories>.active>div>h3,
+.cat_container_home .categories div:hover>h3,
+.cat_container_home .categories>.active>div>h3 {
+    color: var(--text_on);
 }

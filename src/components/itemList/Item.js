@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../itemCount/ItemCount";
 import { ToastContainer, toast } from 'react-toastify';
