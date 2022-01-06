@@ -3,7 +3,6 @@ import "./category.css"
 
 const Category = ({ div_class }) => {
   div_class = div_class || "cat_container";
-  console.log(div_class);
 
   return (
     <div className={div_class}>

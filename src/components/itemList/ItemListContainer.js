@@ -9,7 +9,7 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch(
       id
         ? `https://fakestoreapi.com/products/category/${id}`
@@ -17,33 +17,33 @@ const ItemListContainer = () => {
     )
       .then((res) => res.json())
       .then((json) => {
-        setLoading(false)
-        setProducts(json)
+        setLoading(false);
+        setProducts(json);
       })
 
       .catch((err) => console.log(err));
   }, [id]);
 
-  return (loading ?
-    (<>
-      <Category/>
+  return (
+    <>
+      <Category />
       <div className="container item_list_container">
-        <div className="d-flex justify-content-center">
-          <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
+        {loading ? (
+          // Muestra SPINNER DE CARGA
+          <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
           </div>
-        </div>
+        ) : (
+          // Muestra CONTENIDO
+          <div className="row row-cols-1 row-cols-md-3 g-4">
+            <ItemList items={items} />
+          </div>
+        )}
       </div>
-    </>) :
-    (<>
-      <Category/>
-      <div className="container item_list_container">
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-          <ItemList items={items} />
-        </div>
-      </div>
-    </>)
-  )
+    </>
+  );
 };
 
 export default ItemListContainer;

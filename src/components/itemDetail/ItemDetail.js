@@ -1,27 +1,40 @@
-import { useState } from "react";
-import ItemCount from "../itemCount/ItemCount";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useContexto } from "../../context/cartContext";
+import { useTools } from "../../context/toolsContext";
 
+import ItemCount from "../itemCount/ItemCount";
 
 const ItemDetail = ({ item }) => {
+  // Destructuring del item enviado
   const { id, title, description, price, image } = item;
-  const msgShow = (msgText) => toast(msgText, { theme: "dark" });
 
+  // Destructuring del contexto de carrito
+  const { addItem, removeItem, getQuantity } = useContexto();
+
+  // Destructuring del contexto de herramientas
+  const { tools_alert } = useTools();
+
+  // FUNCION AGREGAR AL CARRITO
   const onAdd = (counter) => {
-    msgShow(
+    addItem({ id: id, title: title, price: price, q: counter });
+
+    tools_alert(
       counter +
-      (counter === 1 ? " unidad añadida" : " unidades añadidas") +
-      " al carrito. Producto: " + title, { theme: "dark" });
+        (counter === 1 ? " unidad añadida" : " unidades añadidas") +
+        " al carrito. Producto: " +
+        title
+    );
   };
 
+  // FUNCION COMPRAR
   const onBuy = (counter) => {
-    msgShow("Ha comprado el producto. " + counter + " un.", { theme: "dark" });
+    tools_alert("Ha comprado el producto. " + counter + " un.");
   };
+
+  // FUNCION REMOVER DE CARRITO
+  const onRemove = () => removeItem(id);
 
   return (
     <div className="card mb-3 itemdetail">
-      <ToastContainer />
       <div className="row g-0">
         <div className="col-md-4 img_header">
           <img src={image} className=" rounded-start" alt="..." />
@@ -34,8 +47,10 @@ const ItemDetail = ({ item }) => {
               <p className="price">${price}</p>
             </p>
           </div>
-          <div className="card-footer bg-transparent border-success">
-            <ItemCount stock={5} onAdd={onAdd} onBuy={onBuy} msgShow={msgShow} buyOption={true} />
+          <div className="card-footer">
+            <small className="text-muted">
+              <ItemCount stock={5} onAdd={onAdd} onBuy={onBuy} onRemove={onRemove} buyOption={true} initial={getQuantity(id)} />
+            </small>
           </div>
         </div>
       </div>
