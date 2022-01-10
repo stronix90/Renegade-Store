@@ -16,33 +16,22 @@ const CustomProvider = ({ children }) => {
     setCantidadTotal(carrito.length);
   };
 
-  //   ACTUALIZA Q Ó AGREGAR ITEM AL CARRITO
+  //   AGREGAR ITEM AL CARRITO
   const addItem = (item) => {
     let index = isInCart(item.id);
-
-    if (index > -1) {
-      let carritoUpdate = carrito.slice();
-      carritoUpdate[index].q = item.q
-      setCarritoCustom(carritoUpdate);
-    } else setCarritoCustom([...carrito, item]);
-
-    // Por si no me llegan a tomar lo otro
-  // const addItem = (item) => {
-  //   let index = isInCart(item.id);
-
-  //   if (index > -1) {
-  //     let carritoUpdate = carrito.slice();
-  //     carritoUpdate[index].q = item.q + carrito[index].q;
-  //     setCarritoCustom(carritoUpdate);
-  //   } else setCarritoCustom([...carrito, item]);
+    if (index === -1) setCarritoCustom([...carrito, item])
   };
 
   //   QUITAR ITEM DEL CARRITO
-  const removeItem = (itemId) => {
+  const updateItem = (itemId, q) => {
     let index = isInCart(itemId);
+    if (index < 0) return;
 
-    if (index > -1) {
-      let carritoUpdate = carrito.slice();
+    let carritoUpdate = carrito.slice();
+    if (q > 0) {
+      carritoUpdate[index].q = q;
+      setCarritoCustom(carritoUpdate);
+    } else {
       carritoUpdate.splice(index, 1);
       setCarritoCustom(carritoUpdate);
     }
@@ -55,7 +44,7 @@ const CustomProvider = ({ children }) => {
   const getQuantity = (itemId) => {
     let index = isInCart(itemId);
 
-    return (index > -1) ? carrito[index].q : 0
+    return index > -1 ? carrito[index].q : 0;
   };
 
   //   VERIFICAR SI EL PRODUCTO YA EXISTE EN EL CARRITO
@@ -66,7 +55,7 @@ const CustomProvider = ({ children }) => {
     cantidadTotal,
     carrito,
     addItem,
-    removeItem,
+    updateItem,
     clear,
     getQuantity,
   };

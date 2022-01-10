@@ -3,6 +3,7 @@
 .itemCardButtons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .itemCardButtons .itemCardSecBtn {
@@ -29,7 +30,7 @@
   border: none;
   text-align: center;
   transition: all 0.5s;
-  width: 40px;
+  width: 25px;
 }
 
 .itemCardButtons input:focus {

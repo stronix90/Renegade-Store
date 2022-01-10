@@ -1,0 +1,36 @@
+.listado{
+    padding: .5rem;
+    background: rgba(29, 29, 29, .9);
+    border-bottom: solid 1px rgb(49, 49, 49);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .6);
+}
+
+.listado img {
+  max-width: 40px;
+}
+
+.listado span {
+  font-size: 1rem;
+}
+
+
+.listado .detalle{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+
+.detalle__title{
+    margin: auto auto auto 0;
+}
+
+.listado .detalle__btn{
+    text-align: end;
+    margin: auto .2rem auto .2rem;
+}
+.listado .detalle__price{
+    width: 4rem;
+    text-align: end;
+    margin:auto 0 auto 1rem;
+    font-weight: bold;
+}

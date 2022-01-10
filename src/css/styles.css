@@ -98,3 +98,16 @@ body {
   filter: drop-shadow(0px 0px 15px rgba(34, 167, 22, 0.7));
   transition: 0.5s ease-in-out;
 }
+
+/* CONTAINER */
+.customContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem 1rem 2rem;
+  margin: -10rem auto 2rem auto;
+  background: var(--primary);
+  background: linear-gradient(160deg, rgba(34, 34, 34, 0.7) 0%, rgba(56, 56, 56, 0.7) 100%);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+  min-height: 80vh;
+}

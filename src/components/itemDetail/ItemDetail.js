@@ -4,34 +4,27 @@ import { useTools } from "../../context/toolsContext";
 import ItemCount from "../itemCount/ItemCount";
 
 const ItemDetail = ({ item }) => {
-  // Destructuring del item enviado
-  const { id, title, description, price, image } = item;
-
-  // Destructuring del contexto de carrito
-  const { addItem, removeItem, getQuantity } = useContexto();
-
-  // Destructuring del contexto de herramientas
-  const { tools_alert } = useTools();
+  // DESTRUCTURING
+  const { id, title, description, price, image } = item; // ITEM
+  const { addItem, updateItem, getQuantity } = useContexto(); // CONTEXTO DEL CARRITO
+  const { tools_alert } = useTools(); // CONTEXTO DE HERRAMIENTAS
 
   // FUNCION AGREGAR AL CARRITO
   const onAdd = (counter) => {
-    addItem({ id: id, title: title, price: price, q: counter });
-
-    tools_alert(
-      counter +
-        (counter === 1 ? " unidad añadida" : " unidades añadidas") +
-        " al carrito. Producto: " +
-        title
-    );
+    addItem({ id: id, title: title, price: price, q: counter, image: image });
   };
 
   // FUNCION COMPRAR
   const onBuy = (counter) => {
-    tools_alert("Ha comprado el producto. " + counter + " un.");
+    tools_alert(
+      "Ha comprado el producto. " + counter + " un. El carrito sigue intacto"
+    );
   };
 
-  // FUNCION REMOVER DE CARRITO
-  const onRemove = () => removeItem(id);
+  // FUNCION ACTUALIZAR Q
+  const onUpdate = (q) => {
+    updateItem(id, q);
+  };
 
   return (
     <div className="card mb-3 itemdetail">
@@ -49,7 +42,15 @@ const ItemDetail = ({ item }) => {
           </div>
           <div className="card-footer">
             <small className="text-muted">
-              <ItemCount stock={5} onAdd={onAdd} onBuy={onBuy} onRemove={onRemove} buyOption={true} initial={getQuantity(id)} />
+              <ItemCount
+                stock={5}
+                onAdd={onAdd}
+                onBuy={onBuy}
+                onUpdate={onUpdate}
+                buyOption={true}
+                informationOpcion={true}
+                initial={getQuantity(id)}
+              />
             </small>
           </div>
         </div>

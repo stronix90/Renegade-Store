@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
   return (
     <>
       <Category />
-      <div className="container item_detail_container">
+      <div className="container customContainer item_detail_container">
         {loading ? (
           // Muestra SPINNER DE CARGA
           <div className="d-flex justify-content-center">

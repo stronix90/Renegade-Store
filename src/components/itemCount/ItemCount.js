@@ -1,64 +1,52 @@
 import { useState, useEffect } from "react";
 import { useTools } from "../../context/toolsContext";
 
-const ItemCount = ({ stock, initial, buyOption, onAdd, onBuy, onRemove }) => {
+const ItemCount = ({
+  stock,
+  initial,
+  buyOption,
+  informationOpcion,
+  onAdd,
+  onBuy,
+  onUpdate,
+}) => {
   // Destructuring del contexto de herramientas
   const { tools_alert } = useTools();
 
   // Declaración del estado COUNTER
   const [counter, setCounter] = useState(initial || 0);
 
-  // Control de la cantidad inicial
+  // Cuando cambia INITIAL, se actualiza el valor del counter
   useEffect(() => {
     setCounter(initial);
   }, [initial]);
 
+  // Cuando cambia COUNTER, se llama a función para que actualice la cantidad en carrito
+  useEffect(() => {
+    onUpdate(counter);
+  }, [counter]);
+
   // AGREGAR AL CARRITO
   const handlerAdd = () => {
-    if (counter > 0 && stock >= counter) {
-      setCounter(0);
-      onAdd(counter);
-    }
+    if (counter > 0 && stock >= counter) onAdd(counter);
   };
 
   // FINALIZAR COMPRA
   const handlerBuy = () => {
-    if (counter > 0 && stock >= counter) {
-      setCounter(0);
-      onBuy(counter);
-    }
+    if (counter > 0 && stock >= counter) onBuy(counter);
   };
 
-  // REMOVER ITEM DEL CARRITO
-  const handlerRemove = () => {
-    if (counter > 0 && stock >= counter) {
-      setCounter(0);
-      onRemove();
-    }
-  };
-
-  // AUMENTAR CANTIDAD
-  const add = () => {
-    if (stock >= counter + 1) setCounter(counter + 1);
-    else tools_alert("No hay más stock");
-  };
-
-  // DISMINUIR CANTIDAD
-  const subtract = () => {
-    if (counter > 0) setCounter(counter - 1);
-    if (counter - 1 === 0) onRemove();
-  };
-
-  // CAMBIAR MANUALMENTE CANTIDAD
-  const handlerChange = (e) => {
-    let val = parseInt(e.target.value);
-    if (val <= stock) setCounter(val);
-    else {
-      tools_alert(
-        "No hay stock suficiente. Se ha seleccionado el stock máximo: " + stock
-      );
-      setCounter(stock);
-    }
+  // ACTUALIZAR CANTIDAD
+  const handlerUpdateQ = (newCounter) => {
+    if (newCounter > 0) {
+      if (newCounter <= stock) setCounter(newCounter);
+      else {
+        setCounter(stock);
+        tools_alert(
+          `No hay stock suficiente. Se ha seleccionado el stock máximo: ${stock}`
+        );
+      }
+    } else setCounter(0);
   };
 
   return (
@@ -68,7 +56,7 @@ const ItemCount = ({ stock, initial, buyOption, onAdd, onBuy, onRemove }) => {
         <button
           disabled={counter === 0 ? "disabled" : null}
           className="itemCardSecBtn"
-          onClick={subtract}
+          onClick={() => handlerUpdateQ(counter - 1)}
         >
           {String.fromCharCode(60)}
         </button>
@@ -77,7 +65,7 @@ const ItemCount = ({ stock, initial, buyOption, onAdd, onBuy, onRemove }) => {
         <input
           type="text"
           value={counter}
-          onChange={handlerChange}
+          onChange={(e) => handlerUpdateQ(e.target.value)}
           onClick={(e) => {
             e.target.select();
           }}
@@ -87,7 +75,7 @@ const ItemCount = ({ stock, initial, buyOption, onAdd, onBuy, onRemove }) => {
         <button
           disabled={counter === stock ? "disabled" : null}
           className="itemCardSecBtn"
-          onClick={add}
+          onClick={() => handlerUpdateQ(counter + 1)}
         >
           {String.fromCharCode(62)}
         </button>
@@ -117,22 +105,29 @@ const ItemCount = ({ stock, initial, buyOption, onAdd, onBuy, onRemove }) => {
             <span className="material-icons">local_mall</span> Comprar
           </button>
         ) : (
-          ""
+          <></>
         )}
 
         {/* INFORMACIÓN SOBRE CANTIDAD EN EL CARRITO */}
-        <div className="note_box" style={{ opacity: initial > 0 ? "1" : "0" }}>
-          <span className="note">
-            {counter} {counter === 1 ? "unidad" : "unidades"} en carrito
-          </span>
-          <span
-            onClick={handlerRemove}
-            className="material-icons trash"
-            title="Quitar este producto del carrito"
+        {informationOpcion ? (
+          <div
+            className="note_box"
+            style={{ opacity: initial > 0 ? "1" : "0" }}
           >
-            delete_forever
-          </span>
-        </div>
+            <span className="note">
+              {initial} {initial === 1 ? "unidad" : "unidades"} en carrito
+            </span>
+            <span
+              onClick={() => handlerUpdateQ(0)}
+              className="material-icons trash"
+              title="Quitar este producto del carrito"
+            >
+              delete_forever
+            </span>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );

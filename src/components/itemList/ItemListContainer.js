@@ -27,7 +27,7 @@ const ItemListContainer = () => {
   return (
     <>
       <Category />
-      <div className="container item_list_container">
+      <div className="container customContainer item_list_container">
         {loading ? (
           // Muestra SPINNER DE CARGA
           <div className="d-flex justify-content-center">
@@ -37,7 +37,7 @@ const ItemListContainer = () => {
           </div>
         ) : (
           // Muestra CONTENIDO
-          <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
             <ItemList items={items} />
           </div>
         )}

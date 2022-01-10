@@ -7,7 +7,7 @@ import Home from "./components/home/Home"
 import ItemListContainer from "./components/itemList/ItemListContainer"
 import ItemDetailContainer from "./components/itemDetail/ItemDetailContainer"
 
-import Cart from "./components/cart/Cart"
+import CartList from "./components/cart/CartList"
 
 import CustomProvider from "./context/cartContext"
 import CustomTools from "./context/toolsContext"
@@ -25,7 +25,7 @@ const App = () => {
               <Route path="/store/" element={<ItemListContainer />} />
               <Route path="/category/:id" element={<ItemListContainer />} />
               <Route path="/item/:id" element={<ItemDetailContainer />} />
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/cart" element={<CartList />} />
             </Route>
           </Routes>
 
