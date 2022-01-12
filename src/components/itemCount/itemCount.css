@@ -1,110 +1,122 @@
 /* ITEMCARD  BOTONES*/
 
 .itemCardButtons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .itemCardButtons .itemCardSecBtn {
-  background: transparent;
-  border-radius: 50%;
-  border: none;
-  padding: 2px 8px;
-  text-align: center;
-  transition: all 0.5s;
+    background: transparent;
+    border-radius: 50%;
+    border: none;
+    padding: 2px 8px;
+    text-align: center;
+    transition: all 0.5s;
 }
 
 .itemCardButtons .itemCardSecBtn:hover {
-  background: var(--white_05);
+    background: var(--white_05);
 }
 
 .itemCardButtons .itemCardSecBtn:disabled,
 .itemCardButtons .itemCardSecBtn[disabled] {
-  background: transparent;
-  color: var(--disabled);
+    background: transparent;
+    color: var(--disabled);
 }
 
 .itemCardButtons input {
-  background: transparent;
-  border: none;
-  text-align: center;
-  transition: all 0.5s;
-  width: 25px;
+    background: transparent;
+    border: none;
+    text-align: center;
+    transition: all 0.5s;
+    width: 25px;
 }
 
 .itemCardButtons input:focus {
-  outline: none;
-  border-bottom: 1px solid var(--primary_on);
+    outline: none;
+    border-bottom: 1px solid var(--primary_on);
 }
 
 .itemCardButtons input::selection {
-  background: var(--primary_50);
+    background: var(--primary_50);
 }
 
 .itemCardButtons .itemCardMainBtn {
-  margin: .2rem .2rem .2rem auto;
-  padding: 0 10px;
-  background: transparent;
-  color: var(--text_off);
-  border: none;
-  border-bottom: solid 1px transparent;
-  display: flex;
-  vertical-align: middle;
-  transition: all 0.5s;
+    margin: .2rem .2rem .2rem auto;
+    padding: 0 10px;
+    background: transparent;
+    color: var(--text_off);
+    border: none;
+    border-bottom: solid 1px transparent;
+    display: flex;
+    vertical-align: middle;
+    transition: all 0.5s;
 }
 
 .itemCardButtons .itemCardMainBtn:hover {
-  color: var(--text_on);
-  border-bottom: solid 1px var(--primary_on);
+    color: var(--text_on);
+    border-bottom: solid 1px var(--primary_on);
 }
 
 .itemCardButtons .itemCardMainBtn:hover * {
-  color: var(--text_on);
+    color: var(--text_on);
 }
 
 .itemCardButtons .itemCardMainBtn:disabled *,
 .itemCardButtons .itemCardMainBtn[disabled] *,
-.itemCardButtons .itemCardMainBtn:disabled ,
+.itemCardButtons .itemCardMainBtn:disabled,
 .itemCardButtons .itemCardMainBtn[disabled] {
-  color: var(--disabled);
+    color: var(--disabled);
 }
 
 .itemCardButtons .itemCardMainBtn:disabled:hover,
 .itemCardButtons .itemCardMainBtn[disabled]:hover {
-  color: var(--disabled);
-  border-bottom: solid 1px var(--disabled);
+    color: var(--disabled);
+    border-bottom: solid 1px var(--disabled);
 }
 
-.itemCardButtons span{
-  margin-right: .5rem;
+.itemCardButtons span {
+    margin-right: .5rem;
 }
 
 .itemCardButtons .note_box {
-  background: #0a340a;
-  width: 100%;
-  margin: 10px 0 0 0;
-  display: flex;
-  align-items: center;
-  transition: all 0.5s  ;
+    background: #0a340a;
+    width: 100%;
+    margin: 10px 0 0 0;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
 }
 
 .itemCardButtons .note {
-  margin: 0 auto;
-  font-size: 1rem;
+    margin: 0 auto;
+    font-size: 1rem;
 }
 
 .itemCardButtons .trash {
-  position: absolute;
-  right: 5px;
-  padding: 0.2rem 0.5rem;
-  font-size: 1.4rem;
-  background: #101010;
-  cursor: pointer;
-  transition: all 0.5s  ;
-  box-shadow: 0 0 .5rem 0 rgb(20, 20, 20);
+    position: absolute;
+    right: 5px;
+    padding: 0.2rem 0.5rem;
+    font-size: 1.4rem;
+    background: #101010;
+    cursor: pointer;
+    transition: all 0.5s;
+    box-shadow: 0 0 .5rem 0 rgb(20, 20, 20);
 }
+
+.itemCardButtons .inline_trash {
+    padding: 0.2rem 0.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
 .itemCardButtons .trash:hover {
-  background: rgb(158, 0, 0);
-  box-shadow: 0 0 .5rem .2rem rgb(20, 20, 20);
+    background: rgb(158, 0, 0);
+    box-shadow: 0 0 .5rem .2rem rgb(20, 20, 20);
+}
+
+.itemCardButtons .inline_trash:hover {
+    color: rgb(214, 27, 27);
 }

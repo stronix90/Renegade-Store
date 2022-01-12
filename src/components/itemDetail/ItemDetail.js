@@ -32,7 +32,7 @@ const ItemDetail = ({ item }) => {
         <div className="col-md-4 img_header">
           <img src={image} className=" rounded-start" alt="..." />
         </div>
-        <div className="col-md-8">
+        <div className="col-md-8 card-body">
           <div className="card-body">
             <h4 className="card-title">{title}</h4>
             <p className="card-text">{description}</p>

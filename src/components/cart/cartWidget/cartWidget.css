@@ -1,6 +1,6 @@
 .cartwidget_container {
-  margin-left: auto;
-  margin-right: 1rem;
+    margin-left: auto;
+    margin-right: 1rem;
 }
 
 .cartwidget {
@@ -9,28 +9,29 @@
     align-items: center;
     margin: 0 5px;
     padding: 0 8px 3px;
-  
     /* Diseño */
     border-bottom: 2px solid var(--primary);
     cursor: pointer;
-  
     /* Animación */
     transition: all 0.3s ease-in-out;
-  }
-  
-  .cartwidget_icon {
+}
+
+.cartwidget_icon {
     margin-right: 8px;
-  }
-  .cartwidget span {
+}
+
+.cartwidget span {
     color: var(--text_off);
     transition: all 0.3s ease-in-out;
-  }
-  
-  .cartwidget:hover {
+}
+
+.cartwidget:hover,
+.cartwidget_on {
     border-bottom: 2px solid var(--primary_on);
     text-shadow: 0 0 2px var(--text_on);
-  }
-  
-  .cartwidget:hover > span {
+}
+
+.cartwidget:hover>span,
+.cartwidget_on>span {
     color: var(--text_on);
-  }
+}

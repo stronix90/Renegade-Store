@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useTools } from "../../context/toolsContext";
+import  "./itemCount.css"
 
 const ItemCount = ({
   stock,
   initial,
   buyOption,
   informationOpcion,
+  inlineTrashOption,
   onAdd,
   onBuy,
   onUpdate,
@@ -52,6 +54,16 @@ const ItemCount = ({
   return (
     <>
       <div className="itemCardButtons">
+        {inlineTrashOption ? (
+          <span
+            onClick={() => handlerUpdateQ(0)}
+            className="material-icons inline_trash"
+            title="Quitar este producto del carrito"
+          >
+            delete_forever
+          </span>
+        ) : <></>}
+
         {/* BOTÓN DISMINUIR CANTIDAD */}
         <button
           disabled={counter === 0 ? "disabled" : null}
@@ -65,7 +77,7 @@ const ItemCount = ({
         <input
           type="text"
           value={counter}
-          onChange={(e) => handlerUpdateQ(e.target.value)}
+          onChange={(e) => handlerUpdateQ(parseInt(e.target.value))}
           onClick={(e) => {
             e.target.select();
           }}

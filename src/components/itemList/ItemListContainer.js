@@ -2,14 +2,18 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import Category from "../category/Category";
+import {db} from "../../conexion.js"
 
 const ItemListContainer = () => {
   const { id } = useParams();
   const [items, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  
   useEffect(() => {
     setLoading(true);
+    console.log("Probando conexión a DB");
+    console.log(db);
     fetch(
       id
         ? `https://fakestoreapi.com/products/category/${id}`

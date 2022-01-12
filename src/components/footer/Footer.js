@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer
       className="text-center text-white"
-      style={{ background: "var(--neutral500)" }}
+      style={{ background: "var(--neutral500)", position:"relative", bottom:"0" }}
     >
       <div className="container pt-4">
         <section className="mb-4">
