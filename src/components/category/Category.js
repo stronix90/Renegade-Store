@@ -8,7 +8,7 @@ const Category = ({ div_class }) => {
     <div className={div_class}>
       <div className="cat_radius">
         <div className="categories">
-          <NavLink to="/category/electronics">
+          <NavLink to="/category/pendientedecreararticulos">
             <div>
               <h3>Equipos armados</h3>
               <img
@@ -18,7 +18,7 @@ const Category = ({ div_class }) => {
             </div>
           </NavLink>
 
-          <NavLink to="/category/jewelery">
+          <NavLink to="/category/mouses">
             <div>
               <h3>Mouses</h3>
               <img
@@ -28,7 +28,7 @@ const Category = ({ div_class }) => {
             </div>
           </NavLink>
 
-          <NavLink to="/category/men's%20clothing">
+          <NavLink to="/category/pendientedecreararticulos">
             <div>
               <h3>Teclados</h3>
               <img
@@ -38,7 +38,7 @@ const Category = ({ div_class }) => {
             </div>
           </NavLink>
 
-          <NavLink to="/category/women's%20clothing">
+          <NavLink to="/category/pendientedecreararticulos">
             <div>
               <h3>Audio</h3>
               <img
@@ -48,7 +48,7 @@ const Category = ({ div_class }) => {
             </div>
           </NavLink>
 
-          <NavLink to="/category/women's%20clothing">
+          <NavLink to="/category/pendientedecreararticulos">
             <div>
               <h3>Sillas</h3>
               <img
@@ -58,7 +58,7 @@ const Category = ({ div_class }) => {
             </div>
           </NavLink>
 
-          <NavLink to="/category/women's%20clothing">
+          <NavLink to="/category/pendientedecreararticulos">
             <div>
               <h3>Consolas</h3>
               <img

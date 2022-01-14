@@ -6,7 +6,7 @@ import { useContexto } from "../../context/cartContext";
 
 const Item = ({ item }) => {
   // DESTRUCTURING
-  const { id, title, description, price, image } = item; // ITEM
+  const { id, title, price, image } = item; // ITEM
   const { addItem, updateItem, getQuantity } = useContexto(); // CONTEXTO DEL CARRITO
   const { tools_alert } = useTools(); // CONTEXTO DE HERRAMIENTAS
 
@@ -39,7 +39,6 @@ const Item = ({ item }) => {
               <Link to={`/item/${id}`}>{title}</Link>
             </h6>
             <p className="price">${price}</p>
-            <p className="card-text">{description}</p>
           </div>
           <div className="card-footer">
             <small className="text-muted">

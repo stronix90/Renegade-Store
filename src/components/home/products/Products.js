@@ -13,75 +13,75 @@ const Products = () => {
           >
             <div className="owl-carousel owl-2">
               <div className="media-29101">
-                <a href="#">
+                <a href="/">
                   <img
                     src="images/img_1.jpg"
-                    alt="Image"
+                    alt="Image_1"
                     className="img-fluid"
                   />
                 </a>
                 <h3>
-                  <a href="#">Consectetur Adipisicing Elit</a>
+                  <a href="/">Consectetur Adipisicing Elit</a>
                 </h3>
               </div>
               <div className="media-29101">
-                <a href="#">
+                <a href="/">
                   <img
                     src="images/img_2.jpg"
-                    alt="Image"
+                    alt="Image_2"
                     className="img-fluid"
                   />
                 </a>
                 <h3>
-                  <a href="#">Beatae Doloribu</a>
+                  <a href="/">Beatae Doloribu</a>
                 </h3>
               </div>
               <div className="media-29101">
-                <a href="#">
+                <a href="/">
                   <img
                     src="images/img_3.jpg"
-                    alt="Image"
+                    alt="Image_3"
                     className="img-fluid"
                   />
                 </a>
                 <h3>
-                  <a href="#">Accusantium Eius Soluta</a>
+                  <a href="/">Accusantium Eius Soluta</a>
                 </h3>
               </div>
               <div className="media-29101">
-                <a href="#">
+                <a href="/">
                   <img
                     src="images/img_4.jpg"
-                    alt="Image"
+                    alt="Image_4"
                     className="img-fluid"
                   />
                 </a>
                 <h3>
-                  <a href="#">Consectetur Adipisicing Elit</a>
+                  <a href="/">Consectetur Adipisicing Elit</a>
                 </h3>
               </div>
               <div className="media-29101">
-                <a href="#">
+                <a href="/">
                   <img
                     src="images/img_5.jpg"
-                    alt="Image"
+                    alt="Image_5"
                     className="img-fluid"
                   />
                 </a>
                 <h3>
-                  <a href="#">Beatae Doloribu</a>
+                  <a href="/">Beatae Doloribu</a>
                 </h3>
               </div>
               <div className="media-29101">
-                <a href="#">
+                <a href="/">
                   <img
                     src="images/img_6.jpg"
-                    alt="Image"
+                    alt="Image_6"
                     className="img-fluid"
                   />
                 </a>
                 <h3>
-                  <a href="#">Accusantium Eius Soluta</a>
+                  <a href="/">Accusantium Eius Soluta</a>
                 </h3>
               </div>
             </div>

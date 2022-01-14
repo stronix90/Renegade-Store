@@ -33,7 +33,7 @@ const Cart = ({ itemInCart }) => {
             srcset=""
             style={{
               width: "-webkit-fill-available",
-              "margin-top": "10px",
+              "marginTop": "10px",
             }}
           />
         </div>

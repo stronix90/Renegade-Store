@@ -1,32 +1,47 @@
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { db } from "../../conexion.js"
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import ItemList from "./ItemList";
 import Category from "../category/Category";
-import {db} from "../../conexion.js"
+
+
 
 const ItemListContainer = () => {
-  const { id } = useParams();
-  const [items, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { category } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState([])
 
-  
+
+  const formatearYSetear = (arrayDeDocumentos) => {
+    setLoading(false)
+    setItems(arrayDeDocumentos.map(documento => {
+      return { ...documento.data(), id: documento.id }
+    }))
+  }
+
+  const getProducts = async () => {
+
+    const productosCollection = collection(db, "products")
+    let customQuery
+
+    if (category) {
+      const q1 = where("category", "==", category)
+      customQuery = query(productosCollection, q1)
+    }
+    else {
+      customQuery = query(productosCollection)
+    }
+    const consulta = await getDocs(customQuery)
+    formatearYSetear(consulta.docs)
+  }
+
   useEffect(() => {
     setLoading(true);
-    console.log("Probando conexión a DB");
-    console.log(db);
-    fetch(
-      id
-        ? `https://fakestoreapi.com/products/category/${id}`
-        : `https://fakestoreapi.com/products`
-    )
-      .then((res) => res.json())
-      .then((json) => {
-        setLoading(false);
-        setProducts(json);
-      })
-
-      .catch((err) => console.log(err));
-  }, [id]);
+    getProducts()
+  }, [category]);
 
   return (
     <>
