@@ -4,7 +4,7 @@ const Information = () => {
   return (
     <>
       <div
-        className="itemcard information container">
+        className="itemCard information container">
         <div className="row g-4 py-3 row-cols-1 row-cols-lg-3">
           <div className="col d-flex align-items-start text-center justify-content-center">
             <div className="row">

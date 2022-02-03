@@ -7,40 +7,33 @@
 
 /* ITEMCARD */
 
-.itemcard {
-    background: var(--neutral500);
-    border-radius: 3px;
-    box-shadow: 0 0 5px 0 rgb(30, 30, 30);
-    transition: all .7s ease-in-out;
-}
-
-.itemcard .img_header {
+.itemCard .img_header {
     display: flex;
     justify-content: center;
     background: var(--neutral800);
-    height: 250px;
+    height: 300px;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
     border: none;
     margin-bottom: 5px;
 }
 
-.itemcard .img_header img {
+.itemCard .img_header img {
     height: 100%;
     width: 100%;
     object-fit: contain;
 }
 
-.itemcard h6 {
+.itemCard h6 {
     font-weight: 700;
 }
 
-.itemcard h6 a {
+.itemCard h6 a {
     text-decoration-line: none;
     color: var(--blanco_apagado);
 }
 
-.itemcard h6 a:hover {
+.itemCard h6 a:hover {
     color: white;
 }
 

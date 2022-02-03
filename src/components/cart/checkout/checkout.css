@@ -1,0 +1,44 @@
+ul{
+    list-style: none;
+}
+
+li{
+    margin: .5rem 0 .5rem;
+}
+
+li > span {
+    width: 1rem;
+    margin-right: .5rem
+}
+
+.checkout_steps > div{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius:  50%;
+    box-shadow:  0 0 .5rem 0 rgb(37, 37, 37);
+    margin: 1rem 0;
+    display:flex;
+
+}
+
+.checkout_steps > div > span{
+    margin: auto auto;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+}
+
+.checkout_steps > span {
+    margin:auto 0
+}
+
+
+.done {
+    background-color: var(--primary);
+    color: black;
+}
+
+.undone{
+    background-color: var(--neutral500);
+    color: white
+}

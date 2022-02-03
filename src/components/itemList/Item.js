@@ -30,7 +30,7 @@ const Item = ({ item }) => {
   return (
     <>
       <div className="col">
-        <div className="card h-100 itemcard">
+        <div className="card h-100 itemCard">
           <div className="img_header">
             <img src={image} className="card-img-top" alt="..." />
           </div>

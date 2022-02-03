@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     margin: 0 5px;
-    padding: 0 8px 3px;
+    padding: 4px 3px;
     /* Diseño */
     border-bottom: 2px solid var(--primary);
     cursor: pointer;

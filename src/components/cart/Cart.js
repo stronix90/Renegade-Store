@@ -29,8 +29,7 @@ const Cart = ({ itemInCart }) => {
         <div className="col-auto">
           <img
             src={image}
-            alt=""
-            srcset=""
+            alt="Imagen de producto"
             style={{
               width: "-webkit-fill-available",
               "marginTop": "10px",

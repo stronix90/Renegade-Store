@@ -14,34 +14,39 @@ const CustomProvider = ({ children }) => {
 
   // setCARRITO PERSONALIZADO. ACTUALIZA: carrito, cantidadTotal y montoTotal
   const setCarritoCustom = (carritoUpdate, operation, qDif, index) => {
-    let newCantidadTotal, newMontoTotal = 0
+    let newCantidadTotal,
+      newMontoTotal = 0;
 
     switch (operation) {
       case "new":
-        newCantidadTotal = cantidadTotal + carritoUpdate.at(-1).q
-        newMontoTotal = montoTotal + carritoUpdate.at(-1).q * carritoUpdate.at(-1).price
+        newCantidadTotal = cantidadTotal + carritoUpdate.at(-1).q;
+        newMontoTotal =
+          montoTotal + carritoUpdate.at(-1).q * carritoUpdate.at(-1).price;
         break;
 
       case "update":
-        newCantidadTotal = cantidadTotal + qDif
-        newMontoTotal = montoTotal + (qDif * carrito[index].price)
+        newCantidadTotal = cantidadTotal + qDif;
+        newMontoTotal = montoTotal + qDif * carrito[index].price;
         break;
 
       case "empty":
-        newCantidadTotal = 0
-        newMontoTotal = 0
+        newCantidadTotal = 0;
+        newMontoTotal = 0;
+        break;
+
+      default:
         break;
     }
 
-    setCantidadTotal(newCantidadTotal)
-    setMontoTotal(newMontoTotal)
+    setCantidadTotal(newCantidadTotal);
+    setMontoTotal(newMontoTotal);
     setCarrito(carritoUpdate);
   };
 
   //   AGREGAR ITEM AL CARRITO
   const addItem = (item) => {
     let index = isInCart(item.id);
-    if (index === -1) setCarritoCustom([...carrito, item], "new")
+    if (index === -1) setCarritoCustom([...carrito, item], "new");
   };
 
   //   ACTUALIZA DATO EXISTENTE
@@ -50,7 +55,7 @@ const CustomProvider = ({ children }) => {
     if (index < 0) return;
 
     let carritoUpdate = carrito.slice();
-    let qDif = q - carritoUpdate[index].q
+    let qDif = q - carritoUpdate[index].q;
 
     //Actualiza la cantidad (q)
     if (q > 0) {

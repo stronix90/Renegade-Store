@@ -25,16 +25,16 @@ const ItemListContainer = () => {
   const getProducts = async () => {
 
     const productosCollection = collection(db, "products")
-    let customQuery
+    let productsQuery
 
     if (category) {
-      const q1 = where("category", "==", category)
-      customQuery = query(productosCollection, q1)
+      const w1 = where("category", "==", category)
+      productsQuery = query(productosCollection, w1)
     }
     else {
-      customQuery = query(productosCollection)
+      productsQuery = query(productosCollection)
     }
-    const consulta = await getDocs(customQuery)
+    const consulta = await getDocs(productsQuery)
     formatearYSetear(consulta.docs)
   }
 

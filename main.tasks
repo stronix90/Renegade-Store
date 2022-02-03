@@ -3,3 +3,22 @@
 
 ☐ ¿Como hacer para usar las categorias con dos estilos diferentes?
 ☐ El componente ItemDetail e Item son practicamente igual. ¿No se pueden reciclar? De hecho, tengo la misma función dos veces
+
+REQUERIDOS:
+    - Los datos de acceso a la DB hacerlo con variables globales:
+        ESTABLECER:
+            Se establecen en un archivo nuvo llamado ".env"
+            REACT_APP_variable = valor
+
+        USAR:
+            process.env.REACT_APP_variable
+
+ESTETICO:
+    - Cambiar color a MONTO TOTAL. Está muy verde
+
+PLUS:
+    - Finalizada la compra, que muestre una pantalla con el ID de compra, el monto total y los productos comprados
+
+ANTES DE HACER LA ENTREGA FINAL:
+    - Eliminar el archivo de dibujo
+    - Eliminar este archivo de notas

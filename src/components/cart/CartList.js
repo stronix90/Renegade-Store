@@ -11,6 +11,8 @@ const CartList = () => {
     clear()
   }
 
+  // const 
+
   return (
     <>
       <Category />
@@ -30,15 +32,15 @@ const CartList = () => {
 
             <div className="actions">
               <button className="customBtn" onClick={onClear}>VACIAR CARRITO</button>
-              <button className="customBtn">
+              <Link to="/checkout" className="customBtn">
                 <span className="material-icons">local_mall</span>TERMINAR COMPRA
-              </button>
+              </Link>
             </div>
           </>
           )
           : (
             <>
-              <img src="\img\emptyCart.png" style={{ margin: "auto", display: "block" }} width={"350px"} alt="" srcset="" />
+              <img src="\img\emptyCart.png" style={{ margin: "auto", display: "block" }} width={"350px"} alt="Carrito vacío" />
               <Link className="customBtn" to="/store">
                 VOLVER A LA TIENDA
               </Link>
