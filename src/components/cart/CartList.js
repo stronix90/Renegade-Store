@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useContexto } from "../../context/cartContext";
 import Category from "../category/Category";
 import Cart from "./Cart";
+import emptyCart from "./emptyCart";
 
 const CartList = () => {
   // DESTRUCTURING
@@ -10,8 +11,6 @@ const CartList = () => {
   const onClear = () =>{
     clear()
   }
-
-  // const 
 
   return (
     <>
@@ -39,13 +38,7 @@ const CartList = () => {
           </>
           )
           : (
-            <>
-              <img src="\img\emptyCart.png" style={{ margin: "auto", display: "block" }} width={"350px"} alt="Carrito vacío" />
-              <Link className="customBtn" to="/store">
-                VOLVER A LA TIENDA
-              </Link>
-
-            </>
+            <emptyCart/>
           )}
       </div>
     </>

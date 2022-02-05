@@ -1,0 +1,39 @@
+.userAuth form {
+  display: grid;
+}
+
+.userAuth form input {
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--neutral800);
+  border: solid 1px var(--neutral500);
+  display: block;
+  color: var(--text_off);
+  box-shadow: 0 0 5px 0 var(--white_05);
+}
+
+.userAuth form input:focus {
+  outline: none;
+  border-bottom: solid 1px green;
+}
+
+
+.userAuth .card-footer button{
+    display: inline-flex;
+    vertical-align: middle;
+    border: solid 1px #2a2a2a;
+    align-items: center;
+    height: 3rem;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background: var(--neutral500);
+    border-radius: 0.3rem;
+    margin: 0.5rem auto;
+    color: var(--text_off);
+    transition: color 0.5s ease-in-out;
+}
+
+.userAuth .card-footer button i{
+    margin-left: .5rem;
+}

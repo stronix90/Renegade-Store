@@ -30,11 +30,11 @@ const UserAuthProvider = ({ children }) => {
       .then(() => {
         updateProfile(auth.currentUser, {
           displayName: `${firstName} ${lastName}`,
-          photoURL: "https://cdn.icon-icons.com/icons2/2574/PNG/512/profile_picture_user_icon_153847.png"
+          photoURL: "./img/profilePicture.png"
         }).catch((error) => {
           tools_alert(error.message);
         });
-        tools_alert("Usuario creado satisfactoriamente");
+        tools_alert("Usuario creado correctamente");
       })
 
       .catch((error) => {
@@ -68,6 +68,14 @@ const UserAuthProvider = ({ children }) => {
       .catch((error) => {
         let msg = "";
         switch (error.code) {
+          case "auth/invalid-email":
+            msg = "El email ingresado es inválido";
+            break;
+
+            case "auth/internal-error":
+              msg = "Por favor, ingrese su contraseña";
+              break;
+
           case "auth/wrong-password":
             msg = "El password ingresado es incorrecto";
             break;

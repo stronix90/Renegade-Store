@@ -5,6 +5,7 @@
 @import url("../components/home/hero/scrollDown.css");
 @import url("../components/itemList/itemList.css");
 @import url("../components/itemDetail/itemDetail.css");
+
 :root {
   /* SET 1 */
   --neutral800: rgb(18, 18, 18);
@@ -130,6 +131,29 @@ body {
   color: var(--text_on);
 }
 
+.customBtnMain {
+  vertical-align: middle;
+  border: solid 1px #2a2a2a;
+  align-items: center;
+  height: 3rem;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  border-radius: 0.3rem;
+  margin: 0.5rem auto;
+  color: var(--text_off);
+  transition: all 1s ease-in-out;
+}
+
+.customBtnMain:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(13, 97, 5, 1) 0%,
+    rgba(23, 136, 12, 1) 100%
+  );
+}
+
+
 .itemCard {
   border-radius: 3px;
   box-shadow: 0 0 5px 0 rgb(30, 30, 30);
@@ -137,6 +161,6 @@ body {
   background: var(--neutral500);
 }
 
-.neutral800{
-    background: var(--neutral800);
+.neutral800 {
+  background: var(--neutral800);
 }
