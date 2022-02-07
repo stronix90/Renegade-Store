@@ -3,16 +3,16 @@ import { useState, createContext, useContext } from "react";
 const contexto = createContext();
 const { Provider } = contexto;
 
-export const useContexto = () => {
+export const useCart = () => {
   return useContext(contexto);
 };
 
-const CustomProvider = ({ children }) => {
+const CartProvider = ({ children }) => {
   const [cantidadTotal, setCantidadTotal] = useState(0);
   const [montoTotal, setMontoTotal] = useState(0);
   const [carrito, setCarrito] = useState([]);
+  const [directPurchase, setDirectPurchase] = useState([]);
 
-  // setCARRITO PERSONALIZADO. ACTUALIZA: carrito, cantidadTotal y montoTotal
   const setCarritoCustom = (carritoUpdate, operation, qDif, index) => {
     let newCantidadTotal,
       newMontoTotal = 0;
@@ -43,13 +43,11 @@ const CustomProvider = ({ children }) => {
     setCarrito(carritoUpdate);
   };
 
-  //   AGREGAR ITEM AL CARRITO
   const addItem = (item) => {
     let index = isInCart(item.id);
     if (index === -1) setCarritoCustom([...carrito, item], "new");
   };
 
-  //   ACTUALIZA DATO EXISTENTE
   const updateItem = (itemId, q) => {
     let index = isInCart(itemId);
     if (index < 0) return;
@@ -57,31 +55,27 @@ const CustomProvider = ({ children }) => {
     let carritoUpdate = carrito.slice();
     let qDif = q - carritoUpdate[index].q;
 
-    //Actualiza la cantidad (q)
     if (q > 0) {
       carritoUpdate[index].q = q;
       setCarritoCustom(carritoUpdate, "update", qDif, index);
-    }
-    // Elimina el prudcto del carrito
-    else {
+    } else {
       carritoUpdate.splice(index, 1);
       setCarritoCustom(carritoUpdate, "update", qDif, index);
     }
   };
 
-  //   VACIAR CARRITO
   const clear = () => setCarritoCustom([], "empty");
 
-  // DEVUELVE CANTIDAD DE UNIDADES DE UN ITEM
   const getQuantity = (itemId) => {
     let index = isInCart(itemId);
 
     return index > -1 ? carrito[index].q : 0;
   };
 
-  //   VERIFICAR SI EL PRODUCTO YA EXISTE EN EL CARRITO, SI EXISTE, DEVUELVE SU POSICIÓN
   const isInCart = (itemId) =>
     carrito.findIndex((element) => element.id === itemId);
+
+  const buyItem = (item) => setDirectPurchase(item);
 
   const valorDelContexto = {
     montoTotal,
@@ -89,11 +83,13 @@ const CustomProvider = ({ children }) => {
     carrito,
     addItem,
     updateItem,
+    buyItem,
     clear,
     getQuantity,
+    directPurchase
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;
 };
 
-export default CustomProvider;
+export default CartProvider;

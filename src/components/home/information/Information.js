@@ -2,7 +2,6 @@ import "./information.css"
 
 const Information = () => {
   return (
-    <>
       <div
         className="itemCard information container">
         <div className="row g-4 py-3 row-cols-1 row-cols-lg-3">
@@ -30,7 +29,6 @@ const Information = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

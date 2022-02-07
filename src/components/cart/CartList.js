@@ -1,47 +1,50 @@
 import { Link } from "react-router-dom";
-import { useContexto } from "../../context/cartContext";
-import Category from "../category/Category";
+import { useCart } from "../../context/cartContext";
 import Cart from "./Cart";
-import emptyCart from "./emptyCart";
+import EmptyCart from "./EmptyCart";
 
 const CartList = () => {
-  // DESTRUCTURING
-  const { carrito, montoTotal, clear } = useContexto(); // CONTEXTO DEL CARRITO
+  const { carrito, montoTotal, clear } = useCart();
 
-  const onClear = () =>{
-    clear()
-  }
+  const onClear = () => clear();
 
   return (
-    <>
-      <Category />
-      <div className="container customContainer cartContainer">
-        <h1>Productos en su carrito</h1>
-        {carrito.length > 0 ?
-          (<>
-            <ul className="list-group">
-              {carrito.map((p) => (
-                <Cart key={p.id} itemInCart={p} />
-              ))}
-            </ul>
-
-            <div className="totalAmount">
-              MONTO TOTAL ${montoTotal.toFixed(2)}
-            </div>
-
-            <div className="actions">
-              <button className="customBtn" onClick={onClear}>VACIAR CARRITO</button>
-              <Link to="/checkout" className="customBtn">
-                <span className="material-icons">local_mall</span>TERMINAR COMPRA
-              </Link>
-            </div>
-          </>
-          )
-          : (
-            <emptyCart/>
+    <div className="container customContainer cartContainer">
+      <div className="card itemCard">
+        <div className="card-body">
+          <h2 className="card-title">Productos en su carrito</h2>
+          {carrito.length > 0 ? (
+            <>
+              <ul className="list-group">
+                {carrito.map((p) => (
+                  <Cart key={p.id} itemInCart={p} />
+                ))}
+              </ul>
+            </>
+          ) : (
+            <EmptyCart />
           )}
+        </div>
+        {carrito.length > 0 && (
+          <div className="card-footer">
+            <p className="text-center text-md-end totalAmount">
+              MONTO TOTAL ${montoTotal.toFixed(2)}
+            </p>
+
+            <div className="row">
+              <Link to="/checkout" className="btnSec">
+                <span className="material-icons">local_mall</span>TERMINAR
+                COMPRA
+              </Link>
+
+              <a href="#!" className="small text-center mt-3" onClick={onClear}>
+                VACIAR CARRITO
+              </a>
+            </div>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 

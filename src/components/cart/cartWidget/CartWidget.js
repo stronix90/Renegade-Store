@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useContexto } from "../../../context/cartContext";
+import { useCart } from "../../../context/cartContext";
 import "./cartWidget.css";
 
 const CartWidget = () => {
-  const { cantidadTotal } = useContexto();
+  const { cantidadTotal } = useCart();
 
   useEffect(() => {
     let cartWidgetClassList = document.getElementById("cartwidget").classList
 
     if (!cartWidgetClassList.contains("cartwidget_on")) {
 
-      // Enciende luz
       cartWidgetClassList.add("cartwidget_on")
 
-      // Apaga luz
       const timeoutIdOff = setTimeout(() => {
         cartWidgetClassList.remove("cartwidget_on")
         clearTimeout(timeoutIdOff);

@@ -1,27 +1,22 @@
-import { useContexto } from "../../context/cartContext";
-import { useTools } from "../../context/toolsContext";
+import { useNavigate  } from "react-router-dom";
+import { useCart } from "../../context/cartContext";
 
 import ItemCount from "../itemCount/ItemCount";
 
 const ItemDetail = ({ item }) => {
-  // DESTRUCTURING
-  const { id, title, description, price, image } = item; // ITEM
-  const { addItem, updateItem, getQuantity } = useContexto(); // CONTEXTO DEL CARRITO
-  const { tools_alert } = useTools(); // CONTEXTO DE HERRAMIENTAS
+  const { id, title, description, price, image, stock } = item
+  const { addItem, updateItem, buyItem, getQuantity } = useCart()
+  const navigate = useNavigate();
 
-  // FUNCION AGREGAR AL CARRITO
   const onAdd = (counter) => {
-    addItem({ id: id, title: title, price: price, q: counter, image: image });
+    addItem({ id, title, price, q: counter, image, stock });
   };
 
-  // FUNCION COMPRAR
   const onBuy = (counter) => {
-    tools_alert(
-      "Ha comprado el producto. " + counter + " un. El carrito sigue intacto"
-    );
+    buyItem([{item:[{ id, title, price, q: counter}]}]);
+    navigate('/checkout');
   };
 
-  // FUNCION ACTUALIZAR Q
   const onUpdate = (q) => {
     updateItem(id, q);
   };
@@ -30,7 +25,7 @@ const ItemDetail = ({ item }) => {
     <div className="card mb-3 itemdetail">
       <div className="row g-0">
         <div className="col-md-4 img_header">
-          <img src={image} className=" rounded-start" alt="..." />
+          <img src={image} className=" rounded-start" alt="Imagen de producto" />
         </div>
         <div className="col-md-8 card-body">
           <div className="card-body">
@@ -43,12 +38,12 @@ const ItemDetail = ({ item }) => {
           <div className="card-footer">
             <small className="text-muted">
               <ItemCount
-                stock={5}
+                stock={stock}
                 onAdd={onAdd}
                 onBuy={onBuy}
                 onUpdate={onUpdate}
                 buyOption={true}
-                informationOpcion={true}
+                informationOption={true}
                 initial={getQuantity(id)}
               />
             </small>

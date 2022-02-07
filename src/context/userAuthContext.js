@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
+
 import {
-  getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
@@ -11,7 +11,9 @@ import {
   onAuthStateChanged,
   updateProfile,
 } from "firebase/auth";
-import { useTools } from "./toolsContext";
+import { auth } from "../conexion.js";
+
+import { toast } from "react-toastify";
 
 const contexto = createContext();
 const { Provider } = contexto;
@@ -21,20 +23,18 @@ export const useUserAuth = () => {
 };
 
 const UserAuthProvider = ({ children }) => {
-  const { tools_alert } = useTools();
   const [user, setUser] = useState(null);
 
   const signUp = async (firstName, lastName, email, password) => {
-    const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         updateProfile(auth.currentUser, {
           displayName: `${firstName} ${lastName}`,
-          photoURL: "./img/profilePicture.png"
+          photoURL: "./img/profilePicture.png",
         }).catch((error) => {
-          tools_alert(error.message);
+          toast.error(error.message, { theme: "dark" });
         });
-        tools_alert("Usuario creado correctamente");
+        toast.success("Usuario creado correctamente", { theme: "dark" });
       })
 
       .catch((error) => {
@@ -56,14 +56,13 @@ const UserAuthProvider = ({ children }) => {
             msg = error.message;
             break;
         }
-        tools_alert(msg);
+        toast.error(msg, { theme: "dark" });
       });
   };
 
   const login = (email, password) => {
-    const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => tools_alert("Ha iniciado sesión correctamente"))
+      .then(() => toast.success("Ha iniciado sesión correctamente", { theme: "dark" }))
 
       .catch((error) => {
         let msg = "";
@@ -72,9 +71,9 @@ const UserAuthProvider = ({ children }) => {
             msg = "El email ingresado es inválido";
             break;
 
-            case "auth/internal-error":
-              msg = "Por favor, ingrese su contraseña";
-              break;
+          case "auth/internal-error":
+            msg = "Por favor, ingrese su contraseña";
+            break;
 
           case "auth/wrong-password":
             msg = "El password ingresado es incorrecto";
@@ -88,33 +87,27 @@ const UserAuthProvider = ({ children }) => {
             msg = error.message;
             break;
         }
-        tools_alert(msg);
+        toast.error(msg, { theme: "dark" });
       });
   };
 
   const loginWithGoogle = () => {
-    const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider).catch((error) =>
-      tools_alert(error.message)
+      toast.error(error.message)
     );
   };
 
   const logout = () => {
-    const auth = getAuth();
-    signOut(auth);
+    signOut(auth).catch((error) => toast.error(error.message, { theme: "dark" }));
   };
 
   const resetPassword = (email) => {
-    const auth = getAuth();
-    sendPasswordResetEmail(auth, email)
-      .then(() => console.log("Email enviado"))
-      .catch((error) => tools_alert(error.message));
+    return sendPasswordResetEmail(auth, email);
   };
 
   useEffect(() => {
-    const auth = getAuth();
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });

@@ -1,85 +1,93 @@
 .slider {
-    position: relative;
-    width: 100%;
-    height: calc(85vh - 60px);
-    display: flex;
-    z-index: 900;
+  position: relative;
+  width: 100%;
+  height: calc(85vh - 60px);
+  display: flex;
+  z-index: 800;
+  padding-top: 3rem;
+  margin-top: -5rem;
 }
 
 .slider .slide {
-    position: relative;
-    background: var(--black);
-    height: 100%;
-    flex: 1;
-    overflow: hidden;
-    transition: flex-grow 1s ease-in-out;
+  position: relative;
+  background: var(--black);
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  transition: flex-grow 1s ease-in-out;
 }
 
 .slider .slide:before {
-    background-color: var(--black_80);
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  background-color: var(--black_80);
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .slider .slide:last-child {
-    border-right: none;
+  border-right: none;
 }
 
 .slider .slide:nth-child(1) {
-    background: url(/src/img/slide/slide_1_armar.jpg);
-    background-position: center;
+  background: url(/src/img/slide/slide_1_armar.jpg);
+  background-position: center;
 }
 
 .slider .slide:nth-child(2) {
-    background: url(/src/img/slide/slide_2_gamer.jpg);
-    background-position: center;
+  background: url(/src/img/slide/slide_2_gamer.jpg);
+  background-position: center;
 }
 
 .slider .slide:nth-child(3) {
-    background: url(/src/img/slide/slide_3_gamerUltra.jpg);
-    background-position: center;
+  background: url(/src/img/slide/slide_3_gamerUltra.jpg);
+  background-position: center;
 }
 
 .slider .slide:hover {
-    flex-grow: 5;
-    border-bottom: 3px solid var(--primary);
-    box-shadow: inset 0px 0px 30px 0px var(--white_50);
-    -webkit-box-shadow: inset 0px 0px 30px 0px var(--white_50);
-    -moz-box-shadow: inset 0px 0px 30px 0px var(--white_50);
+  flex-grow: 5;
+  border-bottom: 3px solid var(--primary);
+  box-shadow: inset 0px 0px 30px 0px var(--white_50);
+  -webkit-box-shadow: inset 0px 0px 30px 0px var(--white_50);
+  -moz-box-shadow: inset 0px 0px 30px 0px var(--white_50);
 }
 
 .slider .slide:hover:before {
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: 2s;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 2s;
 }
 
 .slider .slide .content {
-    position: absolute;
-    bottom: 0;
-    margin: 0;
-    padding: 300px 50px 50px 50px;
-    width: 100%;
-    background: rgb(11, 11, 11);
-    background: linear-gradient( 0deg, var(--black_80) 0%,var(--black_50) 50%, transparent 75%, transparent 100%);
-    color: var(--text_on);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s;
-    transform: translateY(100px);
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 300px 50px 50px 50px;
+  width: 100%;
+  background: rgb(11, 11, 11);
+  background: linear-gradient(
+    0deg,
+    var(--black_80) 0%,
+    var(--black_50) 50%,
+    transparent 75%,
+    transparent 100%
+  );
+  color: var(--text_on);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(100px);
 }
 
 .slider .slide:hover .content {
-    visibility: visible;
-    opacity: 1;
-    transition: 1s;
-    transition-delay: 0.5s;
-    transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+  transition: 1s;
+  transition-delay: 0.5s;
+  transform: translateY(0);
 }
 
 .slider .slide .content h2 {
-    font-weight: 800;
+  font-weight: 800;
 }

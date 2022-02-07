@@ -1,61 +1,59 @@
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+
 import ItemCount from "../itemCount/ItemCount";
-import { useTools } from "../../context/toolsContext";
 
-import { useContexto } from "../../context/cartContext";
+import { useCart } from "../../context/cartContext";
 
-const Item = ({ item }) => {
-  // DESTRUCTURING
-  const { id, title, price, image } = item; // ITEM
-  const { addItem, updateItem, getQuantity } = useContexto(); // CONTEXTO DEL CARRITO
-  const { tools_alert } = useTools(); // CONTEXTO DE HERRAMIENTAS
+const Item = ({ item, footerOption }) => {
+  const { id, title, price, image, stock } = item;
+  const { addItem, updateItem, buyItem, getQuantity } = useCart();
+  const navigate = useNavigate();
 
-  // FUNCION AGREGAR AL CARRITO
   const onAdd = (counter) => {
-    addItem({ id: id, title: title, price: price, q: counter, image: image });
+    addItem({ id, title, price, q: counter, image, stock });
   };
-
-  // FUNCION COMPRAR
+  
   const onBuy = (counter) => {
-    tools_alert(
-      "Ha comprado el producto. " + counter + " un. El carrito sigue intacto"
-    );
+    buyItem([{item:[{ id, title, price, q: counter}]}]);
+    navigate('/checkout');
   };
 
-  // FUNCION ACTUALIZAR Q
   const onUpdate = (q) => {
     updateItem(id, q);
   };
 
   return (
-    <>
-      <div className="col">
-        <div className="card h-100 itemCard">
-          <div className="img_header">
-            <img src={image} className="card-img-top" alt="..." />
-          </div>
-          <div className="card-body">
-            <h6 className="card-title">
-              <Link to={`/item/${id}`}>{title}</Link>
-            </h6>
-            <p className="price">${price}</p>
-          </div>
+    <div className={`col ${!footerOption && "h-100"} `}>
+      <div className="card h-100 itemCard">
+        <div className="img_header">
+          <img src={image} alt="Imagen de producto" />
+        </div>
+
+        <div className="card-body d-flex flex-column justify-content-between">
+          <h6 className="card-title">
+            <Link to={`/item/${id}`}>{title}</Link>
+          </h6>
+          <p className="price">${price}</p>
+        </div>
+
+        {footerOption && (
           <div className="card-footer">
             <small className="text-muted">
               <ItemCount
-                stock={5}
+                stock={stock}
                 onAdd={onAdd}
                 onBuy={onBuy}
                 onUpdate={onUpdate}
                 buyOption={true}
-                informationOpcion={true}
+                informationOption={true}
                 initial={getQuantity(id)}
               />
             </small>
           </div>
-        </div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 

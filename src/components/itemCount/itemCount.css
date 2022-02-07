@@ -6,25 +6,6 @@
     justify-content: center;
 }
 
-.itemCardButtons .itemCardSecBtn {
-    background: transparent;
-    border-radius: 50%;
-    border: none;
-    padding: 2px 8px;
-    text-align: center;
-    transition: all 0.5s;
-}
-
-.itemCardButtons .itemCardSecBtn:hover {
-    background: var(--white_05);
-}
-
-.itemCardButtons .itemCardSecBtn:disabled,
-.itemCardButtons .itemCardSecBtn[disabled] {
-    background: transparent;
-    color: var(--disabled);
-}
-
 .itemCardButtons input {
     background: transparent;
     border: none;
@@ -91,7 +72,7 @@
 
 .itemCardButtons .note {
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 .itemCardButtons .trash {

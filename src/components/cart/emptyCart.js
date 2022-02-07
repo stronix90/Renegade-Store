@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 
-const emptyCart = () => {
+const EmptyCart = () => {
   return (
     <div>
       <img
         src="\img\emptyCart.png"
-        style={{ margin: "auto", display: "block" }}
+        className="m-auto d-block"
         width={"350px"}
         alt="Carrito vacío"
       />
-      <Link className="customBtn" to="/store">
+      <Link className="btnSec m-a d-flex mt-5" to="/store">
         VOLVER A LA TIENDA
       </Link>
     </div>
   );
 };
 
-export default emptyCart;
+export default EmptyCart;

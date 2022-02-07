@@ -5,9 +5,9 @@
 @import url("../components/home/hero/scrollDown.css");
 @import url("../components/itemList/itemList.css");
 @import url("../components/itemDetail/itemDetail.css");
+@import url("react-toastify/dist/ReactToastify.css");
 
 :root {
-  /* SET 1 */
   --neutral800: rgb(18, 18, 18);
   --neutral500: rgb(29, 29, 29);
   --primary: #0d6105;
@@ -23,12 +23,9 @@
   --white_50: rgba(255, 255, 255, 0.5);
   --disabled: rgb(83, 83, 83);
   --disabled_light: rgb(117, 117, 117);
-  /* --green_light_off: rgba(15, 110, 7, 0.5); */
   --green_light_on: rgb(34, 167, 22);
   --text_light_grey: rgb(199, 199, 199);
 }
-
-/* GENERAL */
 
 * {
   margin: 0;
@@ -46,8 +43,6 @@ a {
 a:hover {
   color: var(--text_on);
 }
-
-/* SCROLL */
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -78,8 +73,6 @@ body {
   background-attachment: fixed;
 }
 
-/* LOGO */
-
 .logo {
   -webkit-filter: drop-shadow(0px 0px 20px rgba(29, 78, 25, 0.7));
   filter: drop-shadow(0px 0px 20px rgba(29, 78, 25, 0.7));
@@ -91,13 +84,11 @@ body {
   transition: 0.5s ease-in-out;
 }
 
-/* CONTAINER */
-
 .customContainer {
   display: flex;
   flex-direction: column;
   padding: 7rem 1rem 2rem;
-  margin: -10rem auto 2rem auto;
+  margin: -5rem auto 2rem auto;
   background: var(--primary);
   background: linear-gradient(
     160deg,
@@ -108,44 +99,66 @@ body {
   min-height: 80vh;
 }
 
-.customBtn {
+.customFloatContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0 auto 2rem;
+  background: var(--primary);
+  background: linear-gradient(
+    160deg,
+    rgba(34, 34, 34, 0.7) 0%,
+    rgba(56, 56, 56, 0.7) 100%
+  );
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+.btnSec {
   display: inline-flex;
   vertical-align: middle;
-  border: solid 1px #2a2a2a;
   align-items: center;
+
   height: 3rem;
   width: fit-content;
-  padding: 0.5rem 1rem;
-  background: var(--neutral800);
-  border-radius: 0.3rem;
+
   margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+
+  background: var(--neutral800);
+  border: solid 1px #2a2a2a;
+  border-radius: 0.3rem;
   color: var(--text_off);
+
   transition: color 0.5s ease-in-out;
 }
 
-.customBtn span {
+.btnSec span {
   margin-right: 0.5rem;
 }
 
-.customBtn:hover {
+.btnSec:hover {
   color: var(--text_on);
 }
 
-.customBtnMain {
+.btnMain {
   vertical-align: middle;
-  border: solid 1px #2a2a2a;
   align-items: center;
+
   height: 3rem;
   width: fit-content;
-  padding: 0.5rem 1rem;
-  background: var(--primary);
-  border-radius: 0.3rem;
+
   margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+
+  background: var(--primary);
+  border: solid 1px #2a2a2a;
+  border-radius: 0.3rem;
   color: var(--text_off);
+
   transition: all 1s ease-in-out;
 }
 
-.customBtnMain:hover {
+.btnMain:hover {
   background: linear-gradient(
     90deg,
     rgba(13, 97, 5, 1) 0%,
@@ -153,6 +166,24 @@ body {
   );
 }
 
+.btnArrow {
+  background: transparent;
+  border-radius: 50%;
+  border: none;
+  padding: 2px 8px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.btnArrow:hover {
+  background: var(--white_05);
+}
+
+.btnArrow:disabled,
+.btnArrow[disabled] {
+  background: transparent;
+  color: var(--disabled);
+}
 
 .itemCard {
   border-radius: 3px;
@@ -163,4 +194,10 @@ body {
 
 .neutral800 {
   background: var(--neutral800);
+}
+
+.custom-modal {
+  background: var(--neutral500);
+  border-radius: 3px;
+  box-shadow: 0 0 2rem 1.5rem var(--neutral800); 
 }

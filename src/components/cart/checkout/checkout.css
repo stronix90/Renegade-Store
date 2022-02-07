@@ -1,17 +1,18 @@
-ul{
+.CheckOut ul{
     list-style: none;
 }
 
-li{
+.CheckOut li{
     margin: .5rem 0 .5rem;
+    font-size: 14px;
 }
 
-li > span {
+.CheckOut li > span {
     width: 1rem;
     margin-right: .5rem
 }
 
-.checkout_steps > div{
+.CheckOut .checkout_steps > div{
     width: 2.5rem;
     height: 2.5rem;
     border-radius:  50%;
@@ -21,24 +22,24 @@ li > span {
 
 }
 
-.checkout_steps > div > span{
+.CheckOut .checkout_steps > div > span{
     margin: auto auto;
     font-size: 1.3rem;
     font-weight: bold;
 
 }
 
-.checkout_steps > span {
+.CheckOut .checkout_steps > span {
     margin:auto 0
 }
 
 
-.done {
+.CheckOut .done {
     background-color: var(--primary);
     color: black;
 }
 
-.undone{
+.CheckOut .undone{
     background-color: var(--neutral500);
     color: white
 }

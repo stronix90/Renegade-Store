@@ -1,27 +1,21 @@
 import ItemCount from "../itemCount/ItemCount";
-import { useTools } from "../../context/toolsContext";
-import { useContexto } from "../../context/cartContext";
+import { useCart } from "../../context/cartContext";
 import "./cart.css";
+import { toast } from "react-toastify";
 
 const Cart = ({ itemInCart }) => {
-  // DESTRUCTURING
-  const { id, title, price, image } = itemInCart; // ITEM
-  const { updateItem, getQuantity } = useContexto(); // CONTEXTO DEL CARRITO
-  const { tools_alert } = useTools(); // CONTEXTO DE HERRAMIENTAS
+  const { id, title, price, image, q, stock } = itemInCart
+  const { updateItem } = useCart()
 
-  // FUNCION COMPRAR
   const onBuy = (counter) => {
-    tools_alert(
-      "Ha comprado el producto. " + counter + " un. El carrito sigue intacto"
+    toast.success(
+      "Ha comprado el producto. " + counter + " un. El carrito sigue intacto", { theme: "dark" }
     );
   };
 
-  // FUNCION ACTUALIZAR Q
   const onUpdate = (q) => {
     updateItem(id, q);
   };
-
-  const qnt = getQuantity(id)
 
   return (
     <>
@@ -40,18 +34,18 @@ const Cart = ({ itemInCart }) => {
           <div className="detalle__title">{title}</div>
           <div className="detalle__btn">
             <ItemCount
-              stock={5}
+              stock={stock}
               onAdd={() => { }}
               onBuy={onBuy}
               onUpdate={onUpdate}
               inlineTrashOption={true}
               buyOption={false}
-              informationOpcion={false}
-              initial={qnt}
+              informationOption={false}
+              initial={q}
             />
           </div>
           <div className="detalle__price">
-            ${(price * qnt).toFixed(2)}
+            ${(price * q).toFixed(2)}
           </div>
         </div>
       </li>

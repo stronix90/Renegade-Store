@@ -1,10 +1,10 @@
 import { useState } from "react/cjs/react.development";
 import { useUserAuth } from "../../context/userAuthContext";
-import { useTools } from "../../context/toolsContext";
 import "./UserAuth.css";
 
+import { toast } from "react-toastify";
+
 const UserAuth = () => {
-  const { tools_alert } = useTools();
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -28,12 +28,12 @@ const UserAuth = () => {
     if (isLogin) login(user.email, user.password);
     else {
       if (user.password !== user.password2) {
-        tools_alert("Las contraseñas ingresadas no coinciden");
+        toast.warn("Las contraseñas ingresadas no coinciden", { theme: "dark" });
         return;
       }
 
       if (user.firstName.length < 2 || user.lastName.length < 2) {
-        tools_alert("Ingrese un nombre y apellido válido");
+        toast.warn("Ingrese un nombre y apellido válido", { theme: "dark" });
         return;
       }
 
@@ -45,13 +45,16 @@ const UserAuth = () => {
 
   const handlerLoginWithGoogle = () => loginWithGoogle();
 
-  const handlerResetPassword = () => {
-    if (!user.email) return console.log("Por favor, ingresar un email");
-    resetPassword(user.email);
+  const handlerResetPassword = async () => {
+    if (!user.email) return toast.warn("Por favor, ingresar un email", { theme: "dark" });
+
+    resetPassword(user.email)
+      .then(() => toast("Revise su casilla de email", { theme: "dark" }))
+      .catch((error) => toast.error(error.message, { theme: "dark" }));
   };
 
   return (
-    <div className="userAuth card itemCard">
+    <div className="UserAuth card itemCard">
       <div className="card-body">
         <h3>{operationText}</h3>
         <form onSubmit={handleSubmit} className="form-group">
@@ -97,38 +100,35 @@ const UserAuth = () => {
               onChange={handleChange}
             />
           )}
+
           <div className="row">
             <div className="col-auto m-auto">
-              <button className="customBtnMain" type="submit">
+              <button className="btnMain" type="submit">
                 {operationText}
               </button>
             </div>
 
             <div className="col d-flex flex-column align-items-end m-auto">
-              <span className="">
-                <small>
-                  {isLogin ? "¿Aún no tenés cuenta?" : "¿Ya tenés cuenta?"}{" "}
-                  <b>
-                    <a href="#!" onClick={handleOperation}>
-                      {isLogin ? "REGISTRARSE" : "INGRESAR"}
-                    </a>
-                  </b>
-                </small>
-              </span>
-              {isLogin && (
-                <span>
-                  <a onClick={handlerResetPassword} href="#!">
-                    <small className="text-muted">
-                      ¿Olvidaste tu password?
-                    </small>
+              <small>
+                {isLogin ? "¿Aún no tenés cuenta?" : "¿Ya tenés cuenta?"}
+                <b>
+                  <a href="#!" onClick={handleOperation}>
+                    {isLogin ? " REGISTRARSE" : " INGRESAR"}
                   </a>
-                </span>
+                </b>
+              </small>
+
+              {isLogin && (
+                <a onClick={handlerResetPassword} href="#!">
+                  <small className="text-muted">¿Olvidaste tu password?</small>
+                </a>
               )}
             </div>
           </div>
         </form>
       </div>
-      <div className="card-footer">
+
+      <div className="card-footer m-auto">
         <button onClick={handlerLoginWithGoogle}>
           Ingresar con <i className="fab fa-google" />
         </button>

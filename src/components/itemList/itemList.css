@@ -1,43 +1,46 @@
 .item_list_container h2 {
-    font-family: "Azeret Mono", monospace;
-    color: var(--text_light_grey);
-    font-size: 24px;
+  font-family: "Azeret Mono", monospace;
+  color: var(--text_light_grey);
+  font-size: 24px;
 }
-
 
 /* ITEMCARD */
 
 .itemCard .img_header {
-    display: flex;
-    justify-content: center;
-    background: var(--neutral800);
-    height: 300px;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
-    border: none;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  background: var(--neutral800);
+  height: 300px;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+  border: none;
+  margin-bottom: 5px;
 }
 
 .itemCard .img_header img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .itemCard h6 {
-    font-weight: 700;
+  /* font-weight: 700; */
+  font-size: 14px;
+  text-align: center;
 }
 
 .itemCard h6 a {
-    text-decoration-line: none;
-    color: var(--blanco_apagado);
+  text-decoration-line: none;
+  color: var(--blanco_apagado);
 }
 
 .itemCard h6 a:hover {
-    color: white;
+  color: white;
 }
 
-.item_detail_container .price,
-.item_list_container .price {
-    color: var(--green_light_on);
+.price {
+  font-size: 14px;
+  color: var(--green_light_on);
+  margin: 0.4rem 0 0;
+  text-align: end;
 }

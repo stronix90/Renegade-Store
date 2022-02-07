@@ -3,20 +3,5 @@
 .information {
   box-shadow: 0 0.5rem 1rem var(--neutral800);
   padding: 1.5rem;
-  margin-top: 2rem;
-}
-
-/* CONTENEDOR DE PRODUCTOS */
-
-.products_container {
-  padding: 10rem 1rem 2rem;
-  margin: -10rem auto 2rem auto;
-  background: rgb(34, 34, 34);
-  background: linear-gradient(
-    160deg,
-    rgba(34, 34, 34, 0.7) 0%,
-    rgba(56, 56, 56, 0.7) 100%
-  );
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
-  min-height: 50vh;
+  margin-top: 5rem;
 }
