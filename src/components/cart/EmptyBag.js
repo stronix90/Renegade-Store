@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-const EmptyCart = () => {
+const EmptyBag = () => {
   return (
     <div>
       <img
-        src="\img\emptyCart.png"
+        src="\img\EmptyBag.png"
         className="m-auto d-block"
         width={"350px"}
         alt="Carrito vacío"
@@ -16,4 +16,4 @@ const EmptyCart = () => {
   );
 };
 
-export default EmptyCart;
+export default EmptyBag;

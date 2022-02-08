@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
 import Cart from "./Cart";
-import EmptyCart from "./EmptyCart";
+import EmptyBag from "./EmptyBag";
 
 const CartList = () => {
   const { carrito, montoTotal, clear } = useCart();
@@ -22,7 +22,7 @@ const CartList = () => {
               </ul>
             </>
           ) : (
-            <EmptyCart />
+            <EmptyBag />
           )}
         </div>
         {carrito.length > 0 && (

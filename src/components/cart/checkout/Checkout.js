@@ -7,7 +7,7 @@ import { useCart } from "../../../context/cartContext";
 import { useState, useEffect } from "react";
 
 import UserAuth from "../../user/UserAuth";
-import EmptyCart from "../EmptyCart";
+import EmptyBag from "../EmptyBag";
 
 import "./checkout.css";
 
@@ -73,7 +73,7 @@ const Checkout = () => {
   return (
     <div className="container customContainer CheckOut">
       {carrito.length === 0 && !purchase.direct && !purchaseId ? (
-        <EmptyCart />
+        <EmptyBag />
       ) : (
         <div className="row justify-content-around">
           <div className="card itemCard col-lg-6 my-2 my-lg-0 ">
