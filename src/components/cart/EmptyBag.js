@@ -4,7 +4,7 @@ const EmptyBag = () => {
   return (
     <div>
       <img
-        src="\img\EmptyBag.png"
+        src="\img\emptyCart.png"
         className="m-auto d-block"
         width={"350px"}
         alt="Carrito vacío"
