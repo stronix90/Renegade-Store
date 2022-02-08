@@ -8,9 +8,18 @@ export const useCart = () => {
 };
 
 const CartProvider = ({ children }) => {
-  const [cantidadTotal, setCantidadTotal] = useState(0);
-  const [montoTotal, setMontoTotal] = useState(0);
-  const [carrito, setCarrito] = useState([]);
+  const carritoLocalStorage = localStorage.getItem("carrito");
+  const carritoLocalStorageJSON = JSON.parse(carritoLocalStorage)|| [];
+  const [carrito, setCarrito] = useState(carritoLocalStorageJSON);
+  
+  const montoTotalLocalStorage = localStorage.getItem("montoTotal");
+  const montoTotalLocalStorageJSON = parseInt(JSON.parse(montoTotalLocalStorage),10) || 0;
+  const [montoTotal, setMontoTotal] = useState(montoTotalLocalStorageJSON);
+
+  const cantidadTotalLocalStorage = localStorage.getItem("cantidadTotal");
+  const cantidadTotalLocalStorageJSON =parseInt(JSON.parse(cantidadTotalLocalStorage),10) || 0;
+  const [cantidadTotal, setCantidadTotal] = useState(cantidadTotalLocalStorageJSON);
+
   const [directPurchase, setDirectPurchase] = useState([]);
 
   const setCarritoCustom = (carritoUpdate, operation, qDif, index) => {
@@ -39,8 +48,13 @@ const CartProvider = ({ children }) => {
     }
 
     setCantidadTotal(newCantidadTotal);
+    localStorage.setItem("cantidadTotal", JSON.stringify(newCantidadTotal));
+
     setMontoTotal(newMontoTotal);
+    localStorage.setItem("montoTotal", JSON.stringify(newMontoTotal));
+
     setCarrito(carritoUpdate);
+    localStorage.setItem("carrito", JSON.stringify(carritoUpdate));
   };
 
   const addItem = (item) => {

@@ -131,10 +131,9 @@ const Checkout = () => {
                 <span className="col">Compra realizada</span>
               </div>
               {purchaseId && (
-                <div className="row">
-                  <p className="text-center">
-                    Conserve su comprobante: {purchaseId}
-                  </p>
+                <div className="row text-center">
+                  <h3>Muchas gracias por su compra!</h3>
+                  <p>Conserve su comprobante: {purchaseId}</p>
                 </div>
               )}
             </div>

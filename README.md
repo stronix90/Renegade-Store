@@ -21,14 +21,17 @@ El sitio cuenta con transparencias, lo cual permitió poner una imagen de fondo 
 
 ![Texto alternativo](https://i.ibb.co/86FvVL3/categorias.png)
 
-### Funcionalidades
+### Funcionalidades extras
+A continuación se detalla ciertas funcionalidades extras que se han desarrolado:
 * Los productos guardados en la base de datos tienen los siguientes campos:
     * SALE: Productos en oferta
     * Outstanding: Productos destacados
 
     Aquellos productos que tenga el valor *true* aparecerán en la pagina principal del sitio.
 * La cantidad de unidades a comprar se puede establer con los botones (< >) y también ingresando manualmente la cantidad.
-* Los productos se pueden ir agregando al carrito para finalizar comprado todo lo que se haya agregado o, también se puede comprar un producto directamente, sin necesidade de usar el carrito (Botón COMPRAR).
+* El usuario tiene dos caminos para concretar una compra
+  * Ir agregando productos en el carrito y luego comprar todos los elementos agregados
+  * Comprar un producto puntual, sin necesidad de usar el carrito
 * Los componentes `ItemCount` e `Item` son personalizables a través de ciertos parametros
     * `footerOption`: Le agrega o no el footer a la tarjeta de producto
     * `buyOption`: Muestra/Oculta el botón COMPRAR
@@ -41,6 +44,7 @@ El sitio cuenta con transparencias, lo cual permitió poner una imagen de fondo 
     * Iniciar sesión con cuenta de Google
     * Crear usuario e Inicio de sesión con Email y Contraseña
         * Posibilidade recuperar contraseña
+* El carrito y sus variables asociadas se guardan en `LocalStorage` para que persistan a pesar que se cierre el navegador
 
 
 
