@@ -1,15 +1,15 @@
 # Renegade Store
 
-[Visitar web](https://renegade-store.herokuapp.com/)
-
 Renegade Store es un eCommerce para apasionados del gaming, que buscan los último en tecnología de computadoras y notebook, hardware, mouse, teclados, sillas, consolas, etc.
 Este proyecto se creó como desafío final del curso ReactJS, de CoderHouse.
+[![image cover](/public/cover_renegade.jpg)](https://renegade-store.herokuapp.com/)
+[Ir al sitio](https://renegade-store.herokuapp.com/)
 
 ## Sobre el sitio
 ### Diseño
 Se ha optado por un tono oscuro, con el verde como color principal.
 Además, se utilizan efectos de luces y sombras para marcar los componentes activos e inactivos.
-El sitio cuenta con transparencias, lo cual permitió poner una imagen de fondo que puede cambiarse regularmente para generar algo nuevo a los visitantes. Esta imagen suele ser de algún video juego, por lo tanto, es recomendable actualizarla según los juegos del momento.
+El sitio cuenta con transparencias, lo cual permitió poner una imagen de fondo que puede cambiarse regularmente para generar novedad en los visitantes. Esta imagen suele ser de algún video juego, por lo tanto, es recomendable actualizarla según los juegos del momento.
 
 * Cart Widget
 
