@@ -72,11 +72,11 @@ Para copiar este proyecto en su computadora deberá tener previamente instalado 
 
 **1. Clonar el repositorio**
 ``` shell
-git clone https://github.com/stronix90/renegadestore_v2
+git clone https://github.com/stronix90/Renegade-Store
 ```
 Ingresar a la carpeta de la aplicación:
 ``` shell
-cd renegadestore_v2
+cd Renegade-Store
 ```
 **2. Instalar dependencias**
 ```
