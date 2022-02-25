@@ -15,12 +15,12 @@ const ItemPreviewListContainer = ({ fieldFilter }) => {
   const [items, setItems] = useState([]);
 
   const formatearYSetear = (arrayDeDocumentos) => {
-    setLoading(false);
     setItems(
       arrayDeDocumentos.map((documento) => {
         return { ...documento.data(), id: documento.id };
       })
     );
+    setLoading(false);
   };
 
   const getProducts = async () => {
@@ -34,7 +34,6 @@ const ItemPreviewListContainer = ({ fieldFilter }) => {
   };
 
   useEffect(() => {
-    setLoading(true);
     getProducts();
   }, []);
 
@@ -58,7 +57,7 @@ const ItemPreviewListContainer = ({ fieldFilter }) => {
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
-              pauseOnMouseEnter:true
+              pauseOnMouseEnter: true,
             }}
             breakpoints={{
               640: {
@@ -72,8 +71,8 @@ const ItemPreviewListContainer = ({ fieldFilter }) => {
           >
             {items.map((item, index) => {
               return (
-                <SwiperSlide>
-                  <Item key={index} item={item} footerOption={false} />
+                <SwiperSlide key={`swiper_${index}`}>
+                  <Item key={`item_${index}`} item={item} footerOption={false} />
                 </SwiperSlide>
               );
             })}

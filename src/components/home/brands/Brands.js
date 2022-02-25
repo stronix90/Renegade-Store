@@ -72,9 +72,9 @@ const Brands = () => {
       }}
       className="mySwiper"
     >
-      {brandsArray.map((brand) => {
+      {brandsArray.map((brand, index) => {
         return (
-          <SwiperSlide className="brand__swiper-slide">
+          <SwiperSlide key={index} className="brand__swiper-slide">
             <img src={brand.img} alt={brand.text} />
           </SwiperSlide>
         );
