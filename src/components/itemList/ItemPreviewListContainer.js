@@ -3,10 +3,12 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 
 import { useState, useEffect } from "react";
 
-import ItemsCarousel from "react-items-carousel";
+// import ItemsCarousel from "react-items-carousel";
 import Item from "./Item.js";
 
-import "../itemCount/itemCount.css"
+import "../itemCount/itemCount.css";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
+import { Autoplay } from "swiper";
 
 const ItemPreviewListContainer = ({ fieldFilter }) => {
   const [loading, setLoading] = useState(true);
@@ -36,8 +38,8 @@ const ItemPreviewListContainer = ({ fieldFilter }) => {
     getProducts();
   }, []);
 
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
-  const chevronWidth = 40;
+  // const [activeItemIndex, setActiveItemIndex] = useState(0);
+  // const chevronWidth = 40;
 
   return (
     <>
@@ -48,22 +50,33 @@ const ItemPreviewListContainer = ({ fieldFilter }) => {
           </div>
         </div>
       ) : (
-        <div style={{ padding: `0 ${chevronWidth}px` }}>
-          <ItemsCarousel
-            requestToChangeActive={setActiveItemIndex}
-            activeItemIndex={activeItemIndex}
-            numberOfCards={3}
-            gutter={20}
-            leftChevron={<button className="itemCardButtons btnArrow">{"<"}</button>}
-            rightChevron={<button className="itemCardButtons btnArrow">{">"}</button>}
-            outsideChevron
-            chevronWidth={chevronWidth}
-          >
-            {items.map((item, index) => (
-              <Item key={index} item={item} footerOption={false} />
-            ))}
-          </ItemsCarousel>
-        </div>
+        <Swiper
+        slidesPerView={"auto"}
+        spaceBetween={30}
+          loop={true}
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          className="mySwiper"
+        >
+          {items.map((item, index) => {
+            return (
+              <SwiperSlide>
+                <Item key={index} item={item} footerOption={false} />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       )}
     </>
   );

@@ -4,7 +4,6 @@ import NavBar from "./components/header/NavBar";
 import Footer from "./components/footer/Footer";
 import Category from "./components/category/Category";
 
-
 import Home from "./components/home/Home";
 import ItemListContainer from "./components/itemList/ItemListContainer";
 import ItemDetailContainer from "./components/itemDetail/ItemDetailContainer";
@@ -30,7 +29,6 @@ const App = () => {
         draggable
         pauseOnHover
       />
-      <ToastContainer />
       <UserAuthProvider>
         <CartProvider>
           <BrowserRouter>

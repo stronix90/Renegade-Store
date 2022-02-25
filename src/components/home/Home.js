@@ -3,8 +3,8 @@ import ScrollDownArrow from "../home/hero/ScrollDownArrow";
 import Information from "./information/Information";
 import ItemPreviewListContainer from "../itemList/ItemPreviewListContainer";
 
-import Brands from "./brands/Brands";
 import "./home.css";
+import Brands from "./brands/Brands";
 
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
 
       <h2>Marcas</h2>
       <div className="container customFloatContainer mb-5">
-        <Brands />
+        <Brands/>
       </div>
 
       <h2>TIENDA</h2>

@@ -100,7 +100,7 @@ body {
 }
 
 .customFloatContainer {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   padding: 1rem;
   margin: 0 auto 2rem;

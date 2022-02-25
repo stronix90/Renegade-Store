@@ -28,7 +28,9 @@ const UserAuth = () => {
     if (isLogin) login(user.email, user.password);
     else {
       if (user.password !== user.password2) {
-        toast.warn("Las contraseñas ingresadas no coinciden", { theme: "dark" });
+        toast.warn("Las contraseñas ingresadas no coinciden", {
+          theme: "dark",
+        });
         return;
       }
 
@@ -46,7 +48,8 @@ const UserAuth = () => {
   const handlerLoginWithGoogle = () => loginWithGoogle();
 
   const handlerResetPassword = async () => {
-    if (!user.email) return toast.warn("Por favor, ingresar un email", { theme: "dark" });
+    if (!user.email)
+      return toast.warn("Por favor, ingresar un email", { theme: "dark" });
 
     resetPassword(user.email)
       .then(() => toast("Revise su casilla de email", { theme: "dark" }))
@@ -55,7 +58,7 @@ const UserAuth = () => {
 
   return (
     <div className="UserAuth card itemCard">
-      <div className="card-body">
+      <div className="card-body text-center text-sm-start">
         <h3>{operationText}</h3>
         <form onSubmit={handleSubmit} className="form-group">
           {!isLogin && (
@@ -102,20 +105,18 @@ const UserAuth = () => {
           )}
 
           <div className="row">
-            <div className="col-auto m-auto">
+            <div className="col-12 col-sm-auto m-auto">
               <button className="btnMain" type="submit">
                 {operationText}
               </button>
             </div>
 
-            <div className="col d-flex flex-column align-items-end m-auto">
+            <div className="col-12 col-sm d-flex flex-column align-items-center align-items-sm-end m-auto">
               <small>
                 {isLogin ? "¿Aún no tenés cuenta?" : "¿Ya tenés cuenta?"}
-                <b>
-                  <a href="#!" onClick={handleOperation}>
-                    {isLogin ? " REGISTRARSE" : " INGRESAR"}
-                  </a>
-                </b>
+                <a href="#!" onClick={handleOperation}>
+                  {isLogin ? " REGISTRARSE" : " INGRESAR"}
+                </a>
               </small>
 
               {isLogin && (
