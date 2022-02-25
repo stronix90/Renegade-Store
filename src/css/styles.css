@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Azeret+Mono&display=swap");
 @import url("../components/header/navBar.css");
 @import url("../components/home/hero/scrollDown.css");
-@import url("../components/itemList/itemList.css");
+@import url("../components/itemList/itemListStyle.css");
 @import url("../components/itemDetail/itemDetail.css");
 @import url("react-toastify/dist/ReactToastify.css");
 
@@ -25,6 +25,7 @@
   --disabled_light: rgb(117, 117, 117);
   --green_light_on: rgb(34, 167, 22);
   --text_light_grey: rgb(199, 199, 199);
+  --swiper-theme-color: var(--green_light_on)
 }
 
 * {

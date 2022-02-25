@@ -64,8 +64,8 @@ En este proyecto se ha utilizado los siguientes servicios:
  * Autenticación de usuarios: `Authentication`. Se ha implementado el registro y login utilizando email y clave; así mismo, utilizando una cuenta de Google.
 * [React Toastify](https://github.com/fkhadra/react-toastify#readme/) \
 Permite crear mensajes de notificación vistos, de manera rápida y sencilla.
-* [React-items-carousel](https:https://github.com/kareemaly/react-items-carousel/) \
-Permite crear carousel sin necesidad de escribir JS y CSS
+* [Swiper](https://swiperjs.com/) \
+Permite crear slider configurables
 
 # Instalación
 Para copiar este proyecto en su computadora deberá tener previamente instalado [`Git`](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git) y [`NodeJS`](https://nodejs.org/es/). Luego se deberán seguir los siguientes pasos:

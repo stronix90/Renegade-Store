@@ -1,3 +1,12 @@
+.itemPreview .swiper-slide {
+  height: auto!important;
+}
+
+.itemPreview .swiper-wrapper {
+  margin-bottom: 3rem!important;
+}
+
+
 .item_list_container h2 {
   font-family: "Azeret Mono", monospace;
   color: var(--text_light_grey);
@@ -24,7 +33,6 @@
 }
 
 .itemCard h6 {
-  /* font-weight: 700; */
   font-size: 14px;
   text-align: center;
 }
